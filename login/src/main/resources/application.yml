@@ -1,0 +1,13 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: login
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8093
+  datasource:
+    username: root
+    password: liuhao12345
+    url: jdbc:mysql://localhost:3306/login?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver

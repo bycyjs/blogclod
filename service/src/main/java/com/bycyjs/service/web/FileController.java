@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.http.HttpRequest;
 
 @RestController
@@ -17,9 +18,9 @@ public class FileController {
     private FileService fileService;
 
     @PostMapping("/upload")
-    public R upload(HttpServletRequest request, @RequestBody MultipartFile file){
-        fileService.upload(request,file );
-        return R.success("test");
+    public R upload(HttpServletRequest request, @RequestBody MultipartFile file) throws IOException {
+
+        return  fileService.upload(request,file );
     }
 
 }

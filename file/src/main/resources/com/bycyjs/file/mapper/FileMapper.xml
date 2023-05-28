@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bycyjs.file.mapper.FileMapper">
+   <update id="createTable">
+       create table ${username}(
+       id int auto_increment primary key,
+       uploadtime varchar(255) not null,
+       filename varchar(255) not null,
+       filesize varchar(255) not null,
+       filetype varchar(255) not null
+       )
+   </update>
+</mapper>

@@ -1,5 +1,7 @@
 server:
   port: 8094
+  jetty:
+    max-http-form-post-size: 102400
 spring:
   application:
     name: file
@@ -9,7 +11,7 @@ spring:
   datasource:
     username: root
     password: liuhao12345
-    url: jdbc:mysql://localhost:3306/file?userSSL=false
+    url: jdbc:mysql://localhost:3306/file?useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
   servlet:
     multipart:

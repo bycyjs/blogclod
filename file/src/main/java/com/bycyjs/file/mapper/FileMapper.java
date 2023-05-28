@@ -23,7 +23,10 @@ public interface FileMapper {
     @Select("select * from ${username}")
     List<File> selectRecord(File file);
 
-    @Delete("delete from ${username} where filename=#{filename} and uploadtime=#{uploadtime}")
+    @Select("select * from ${username} where id=#{id}")
+    File selectId(File file);
+
+    @Delete("delete from ${username} where id=#{id}")
     void deleteRecord(File file);
 
 

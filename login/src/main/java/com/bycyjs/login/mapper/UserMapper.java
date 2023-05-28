@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    @Insert("insert into user value (#{username},#{password},#{time})")
+    @Insert("insert into user (username,password,time) value (#{username},#{password},#{time})")
     void addUser(User user);
 
     /*查找用户是否存在*/

@@ -22,5 +22,16 @@ public class FileController {
 
         return  fileService.upload(request,file );
     }
+    @PostMapping("/selectRecord")
+    public R selectRecord(HttpServletRequest request){
+        return fileService.selectRecord(request);
+
+    }
+    @GetMapping("/deleteRecord/{id}")
+    public R deleteRecord(HttpServletRequest request,@PathVariable Integer id) throws Exception {
+
+
+        return fileService.deleteRecord(request,id);
+    }
 
 }

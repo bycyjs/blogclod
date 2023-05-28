@@ -38,7 +38,7 @@ public class HttpEntityTool {
             map.put(f.getName(),invoke);
         }
         String s = objectMapper.writeValueAsString(object);
-        httpHeaders.add("Content-Type", "application/json");
+        httpHeaders.set("Content-Type", "application/json");
         HttpEntity httpEntity = new HttpEntity<>(s, httpHeaders);
         return httpEntity;
     }

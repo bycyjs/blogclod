@@ -7,9 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -18,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 @Service
@@ -71,5 +70,34 @@ public class FileServiceImpl implements FileService {
         return R.success(result);
 
 
+    }
+
+    @Override
+    public R selectRecord(HttpServletRequest request) {
+        HttpHeaders headers=new HttpHeaders();
+        headers.add("username",request.getHeader("username"));
+        headers.add("password",request.getHeader("password"));
+        HttpEntity http=new HttpEntity(headers);
+        String url="http://file/file/selectRecord";
+        Object object=null;
+        try{
+            object = restTemplate.postForObject(url, http, Object.class);
+        }catch (Exception e){
+            return R.error("错误");
+        }
+
+        return R.success(object);
+    }
+
+    @Override
+    public R deleteRecord(HttpServletRequest request, Integer id) {
+        HttpHeaders headers=new HttpHeaders();
+        headers.add("username",request.getHeader("username"));
+        headers.add("password",request.getHeader("password"));
+        String url="http://file/file/deleteRecord/"+id;
+        HttpEntity http=new HttpEntity(headers);
+        ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.GET, http, String.class);
+//        String forObject = restTemplate.getForObject(url, String.class);
+        return R.success(exchange);
     }
 }

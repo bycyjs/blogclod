@@ -1,5 +1,7 @@
 server:
   port: 8090
+  jetty:
+    max-http-form-post-size: 102400
 spring:
   application:
     name: login

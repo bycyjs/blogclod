@@ -56,14 +56,14 @@ public class FileServiceImpl implements FileService {
             file1.setFilesize(file.getSize());
             /*获取文件是输入流*/
             InputStream inputStream = file.getInputStream();
-            java.io.File file2 = new java.io.File("F:\\blog\\nginx-1.23.3\\html\\file\\upload\\" + username + "\\" + file1.getUploadtime());
+            java.io.File file2 = new java.io.File("F:\\blog\\html\\file\\upload\\" + username + "\\" + file1.getUploadtime());
 
             /*判断目录是否存在*/
             if (!file2.exists()) {
                 file2.mkdirs();
             }
 
-            OutputStream outputStream = new FileOutputStream("F:\\blog\\nginx-1.23.3\\html\\file\\upload\\" + username + "\\" + file1.getUploadtime() + "\\" + file.getOriginalFilename());
+            OutputStream outputStream = new FileOutputStream("F:\\blog\\html\\file\\upload\\" + username + "\\" + file1.getUploadtime() + "\\" + file.getOriginalFilename());
             /*执行文件拷贝*/
             IOUtils.copy(inputStream, outputStream);
 
@@ -134,7 +134,7 @@ public class FileServiceImpl implements FileService {
 
         if ("succeed".equals(s)) {
             File file1 = fileMapper.selectId(file);
-            String path="F:\\blog\\nginx-1.23.3\\html\\file\\upload\\" + username + "\\" + file1.getUploadtime() + "\\" + file1.getFilename();
+            String path="F:\\blog\\html\\file\\upload\\" + username + "\\" + file1.getUploadtime() + "\\" + file1.getFilename();
             java.io.File file2=new java.io.File(path);
             if(file2.exists()){
                 file2.delete();

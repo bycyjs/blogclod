@@ -1,18 +1,10 @@
 server:
   port: 8080
-  jetty:
-    max-http-form-post-size: 102400
-
 spring:
-  application:
-    name: service
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 200MB
-  cloud:
-    nacos:
-      server-addr: 127.0.0.1:8093
 #解决header头标token过大的问题
 #  server.max-http-header-size=102400
 

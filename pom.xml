@@ -10,6 +10,9 @@
         <module>user-nacos</module>
         <module>service</module>
         <module>file</module>
+        <module>pay</module>
+        <module>api</module>
+        <module>comment</module>
     </modules>
     <groupId>com.bycyjs</groupId>
     <artifactId>bycyjs-cloud</artifactId>

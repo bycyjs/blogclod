@@ -35,7 +35,7 @@ public class FileServiceImpl implements FileService {
         /*将文件临时存储的方法*/
         fileTool.nonce(file, username);
         /*获取位置所在的位置*/
-        String filePath = "F:\\blog\\nginx-1.23.3\\html\\file\\upload\\nonce\\" + request.getHeader("username") + "\\" + file.getOriginalFilename();
+        String filePath = "F:\\blog\\html\\file\\upload\\nonce\\" + request.getHeader("username") + "\\" + file.getOriginalFilename();
         FileSystemResource fileSystemResource = new FileSystemResource(filePath);
         MultiValueMap<String, Object> params = new LinkedMultiValueMap<>();
         /*访问文件服务器*/
@@ -50,7 +50,7 @@ public class FileServiceImpl implements FileService {
         String result = restTemplate.postForObject(url, requestEntity, String.class);
 
         /*删除临时文件夹*/
-        String path="F:\\blog\\nginx-1.23.3\\html\\file\\upload\\nonce\\" + request.getHeader("username");
+        String path="F:\\blog\\html\\file\\upload\\nonce\\" + request.getHeader("username");
         File file1=new File(path);
         if(file1.exists()){
             boolean delete = file1.delete();

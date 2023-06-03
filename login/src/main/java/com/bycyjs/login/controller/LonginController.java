@@ -60,4 +60,7 @@ public class LonginController {
 
         return loginService.validateUser(user);
     }
+
+    /*图片验证码*/
+
 }

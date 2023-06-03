@@ -1,0 +1,13 @@
+server:
+  port: 8095
+spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8093
+  application:
+    name: comment
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: liuhao12345
+    url: jdbc:mysql://localhost:3306/comment?useSSL=false

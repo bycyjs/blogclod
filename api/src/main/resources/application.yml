@@ -1,0 +1,8 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: api
+  cloud:
+    nacos:
+      server-addr: localhost:8093

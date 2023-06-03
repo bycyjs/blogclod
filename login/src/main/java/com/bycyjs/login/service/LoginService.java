@@ -8,4 +8,5 @@ public interface LoginService {
 
     String addUser(User user);
     String validateUser(User user);
+    /*图片*/
 }

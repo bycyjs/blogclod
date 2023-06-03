@@ -25,12 +25,12 @@ public class FileTool {
     public void nonce(MultipartFile file, String username) throws IOException {
         /*获取文件是输入流*/
         InputStream inputStream = file.getInputStream();
-        java.io.File file2 = new java.io.File("F:\\blog\\nginx-1.23.3\\html\\file\\upload\\nonce\\" + username);
+        java.io.File file2 = new java.io.File("F:\\blog\\html\\file\\upload\\nonce\\" + username);
         /*判断目录是否存在*/
         if (!file2.exists()) {
             boolean mkdirs = file2.mkdirs();
         }
-        OutputStream outputStream = new FileOutputStream("F:\\blog\\nginx-1.23.3\\html\\file\\upload\\nonce\\" + username + "\\" + file.getOriginalFilename());
+        OutputStream outputStream = new FileOutputStream("F:\\blog\\html\\file\\upload\\nonce\\" + username + "\\" + file.getOriginalFilename());
         /*执行文件拷贝*/
         IOUtils.copy(inputStream, outputStream);
         inputStream.close();
@@ -47,7 +47,7 @@ public class FileTool {
         MultiValueMap<String, Object> parts = new LinkedMultiValueMap<>();
 
         //读取本地文件  "D:/upload/file";
-        String filePath = "F:\\blog\\nginx-1.23.3\\html\\file\\upload\\nonce\\" + request.getHeader("username") + "\\" + filename;
+        String filePath = "F:\\blog\\html\\file\\upload\\nonce\\" + request.getHeader("username") + "\\" + filename;
         FileSystemResource fileSystemResource = new FileSystemResource(filePath);
 
         System.out.println(filePath);

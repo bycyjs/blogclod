@@ -1,8 +1,10 @@
 package com.bycyjs.login.service.impl;
 
+import com.bycyjs.login.mapper.MailboxMapper;
 import com.bycyjs.login.mapper.UserMapper;
 import com.bycyjs.login.pojo.User;
 import com.bycyjs.login.service.LoginService;
+import com.bycyjs.login.service.MailboxService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ public class LoginServiceImpl implements LoginService {
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private MailboxService mailboxService;
 
     /*增加新用户*/
     @Override
@@ -30,12 +34,13 @@ public class LoginServiceImpl implements LoginService {
 
         }
         /*判断用户名是否重复*/
-        System.out.println(user1.size() > 0);
+        /*System.out.println(user1.size() > 0);*/
         if (user1.size() > 0) {
             return "1";
         }
         try {
             userMapper.addUser(user);
+            mailboxService.addMailboxlogin(user.getUsername(), user.getMailboxvalidate());
         } catch (Exception e) {
             log.info("" + e);
             log.info("fail2");
@@ -57,9 +62,9 @@ public class LoginServiceImpl implements LoginService {
             return "fail";
         }
         if (user1.size() != 1) {
-            System.out.println(user);
-            System.out.println(user1.size());
-            System.out.println(user1);
+//            System.out.println(user);
+//            System.out.println(user1.size());
+//            System.out.println(user1);
             return "1";
         }
         /*//判断密码是否正确*/

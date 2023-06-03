@@ -1,0 +1,14 @@
+server:
+  port: 8097
+
+spring:
+  application:
+    name: md
+  datasource:
+    url:  jdbc:mysql://localhost:3306/md?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: liuhao12345
+  cloud:
+    nacos:
+      server-addr: localhost:8093

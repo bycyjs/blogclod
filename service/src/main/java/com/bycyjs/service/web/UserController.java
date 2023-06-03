@@ -1,20 +1,24 @@
 package com.bycyjs.service.web;
 
 import com.bycyjs.service.bojo.User;
+import com.bycyjs.service.config.Cyclostyle;
 import com.bycyjs.service.tool.HttpEntityTool;
 import com.bycyjs.service.tool.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @RequestMapping("/userservice")
 @RestController
 @Slf4j
+@RefreshScope
 public class UserController {
 
     @Autowired
@@ -66,5 +70,22 @@ public class UserController {
         }else {
             return R.error("未知错误");
         }
+    }
+
+
+    /*测试*/
+/*//    @Value("${pattern.dateformat}")
+//    private String dateformat;*/
+    @Autowired
+    private Cyclostyle cyclostyle;
+    @GetMapping("/dateformat")
+    public String dateformat(){
+        return  LocalDateTime.now().format(DateTimeFormatter.ofPattern(cyclostyle.getDateformat()));
+    }
+    @GetMapping("/sendVerificationCodelogin/{mailbox}")
+    public R  SendVerificationCodeLogin(@PathVariable("mailbox" ) String mailbox){
+        String url ="http://login/login/sendVerificationCodelogin/"+mailbox;
+
+        return restTemplate.getForObject(url,R.class);
     }
 }

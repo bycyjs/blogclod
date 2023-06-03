@@ -10,6 +10,10 @@
         <module>user-nacos</module>
         <module>service</module>
         <module>file</module>
+        <module>pay</module>
+        <module>api</module>
+        <module>comment</module>
+        <module>md</module>
     </modules>
     <groupId>com.bycyjs</groupId>
     <artifactId>bycyjs-cloud</artifactId>
@@ -86,7 +90,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+
         </plugins>
+
     </build>
 
 </project>

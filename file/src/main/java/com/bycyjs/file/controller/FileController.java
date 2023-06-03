@@ -3,6 +3,7 @@ package com.bycyjs.file.controller;
 import com.bycyjs.file.pojo.File;
 import com.bycyjs.file.service.FileService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,5 +31,10 @@ public class FileController{
     @GetMapping("/deleteRecord/{id}")
     public String deleteRecord(HttpServletRequest request,@PathVariable("id") Integer id) throws Exception {
         return fileService.deleteRecord(request,id);
+    }
+    @GetMapping("/download/{id}")
+    public String download (@PathVariable("id") Integer id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        return fileService.download(id,request,response);
+
     }
 }

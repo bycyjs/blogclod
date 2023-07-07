@@ -58,10 +58,11 @@ public class LonginController {
         return s;
     }
 
-    @PostMapping("/validateUser")
-    public String validateUser(@RequestBody User user) {
+    /*验证用户登陆*/
+    @PostMapping("/validateUser/{code}")
+    public R validateUser(@RequestBody User user,@PathVariable("code") String code) {
 
-        return loginService.validateUser(user);
+        return loginService.validateUser(user,code);
     }
 
     /*图片验证码*/

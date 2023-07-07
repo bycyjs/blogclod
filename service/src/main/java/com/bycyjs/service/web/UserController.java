@@ -53,15 +53,13 @@ public class UserController {
     }
 
 
-    @PostMapping("/validateUser/{d}")
-    public R validateUser(@RequestBody User user,@PathVariable("d") Integer d) throws Exception {
-        if (d!=1){
-            return R.error("没有获取验证码");
-        }
+    @PostMapping("/validateUser/{code}")
+    public R validateUser(@RequestBody User user,@PathVariable("code") String code) throws Exception {
+
         HttpEntity httpEntity1 = httpEntity.objPost(user);
-        String url = "http://login/login/validateUser";
-        String s = restTemplate.postForObject(url, httpEntity1, String.class);
-        if ("fail".equals(s)) {
+        String url = "http://login/login/validateUser/"+code;
+        R r = restTemplate.postForObject(url, httpEntity1, R.class);
+        /*if ("fail".equals(s)) {
             return R.success("出错");
         } else if ("1".equals(s)) {
             return R.error("用户名不存在");
@@ -71,7 +69,8 @@ public class UserController {
             return R.success("succeed");
         }else {
             return R.error("未知错误");
-        }
+        }*/
+        return r;
     }
 
 

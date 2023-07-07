@@ -59,6 +59,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- 加入redis连接池-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -66,6 +71,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!-- 指定打包的jar包输出路径 -->
+                    <outputDirectory>F:\blog\service</outputDirectory>
                     <!-- 指定该 Main Class 为全局的唯一入口 -->
                     <mainClass>com.bycyjs.login.LonginApplication</mainClass>
                     <layout>ZIP</layout>

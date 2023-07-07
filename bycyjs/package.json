@@ -1,0 +1,33 @@
+{
+  "name": "bycyjs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build ",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.22.5",
+    "@vitejs/plugin-legacy": "^4.0.5",
+    "ant-design-vue": "^3.2.20",
+    "axios": "^1.4.0",
+    "element-plus": "^2.3.6",
+    "jquery": "^3.7.0",
+    "layui": "^2.8.6",
+    "pinia": "^2.0.36",
+    "terser": "^5.18.2",
+    "vant": "^4.6.0",
+    "vue": "^3.3.2",
+    "vue-router": "^4.2.0",
+    "webpack": "^5.87.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.16",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "unplugin-vue-components": "^0.25.1",
+    "vite": "^4.3.5"
+  }
+}

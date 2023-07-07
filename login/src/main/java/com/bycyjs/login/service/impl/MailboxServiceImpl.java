@@ -1,22 +1,26 @@
 package com.bycyjs.login.service.impl;
 
+import com.bycyjs.login.mapper.CodeMapper;
 import com.bycyjs.login.mapper.MailboxMapper;
 import com.bycyjs.login.mapper.UserMapper;
 import com.bycyjs.login.pojo.Mailbox;
 import com.bycyjs.login.pojo.User;
 import com.bycyjs.login.service.MailboxService;
+import com.bycyjs.login.tool.ValidateCodeTool;
 import com.bycyjs.login.tool.VerificationCode;
 import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -27,6 +31,13 @@ public class MailboxServiceImpl implements MailboxService {
 
     @Autowired
     private JavaMailSender mailSender;
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+    @Autowired
+    private ValidateCodeTool validateCodeTool;
+    @Autowired
+    private CodeMapper codeMapper;
 
     /*判断是否存有邮箱*/
     @Override
@@ -52,6 +63,8 @@ public class MailboxServiceImpl implements MailboxService {
     @Value("${spring.mail.username}")
     private String from;
 
+
+    /*登陆验证码*/
     @Override
     public R sendVerificationCode(HttpServletRequest request) {
 
@@ -62,7 +75,7 @@ public class MailboxServiceImpl implements MailboxService {
         /*判断账号是否绑定的有邮箱*/
         R r = selectMailbox(mailbox);
         if (r.getCode() == 1) {
-           mailbox= mailboxMapper.selectMailbox(mailbox);
+            mailbox = mailboxMapper.selectMailbox(mailbox);
             /*获取一个验证码*/
             VerificationCode code = new VerificationCode();
             String vcode = code.verificationCode();
@@ -77,7 +90,23 @@ public class MailboxServiceImpl implements MailboxService {
             message.setText("尊敬的" + mailbox.getUsername() + ",您好:\n"
                     + "\n本次请求的邮件验证码为:" + vcode + ",本验证码 5 分钟内效，请及时输入。（请勿泄露此验证码）\n"
                     + "\n如非本人操作，请忽略该邮件。\n(这是一封通过自动发送的邮件，请不要直接回复）");
-            /*System.out.println(message.getFrom());*/
+            /*将验证码存入redis中*/
+            redisTemplate.opsForValue().set(mailbox.getUsername(), vcode, 5 * 60, TimeUnit.SECONDS);
+
+           /* System.out.println(redisTemplate.opsForValue().get(mailbox.getMailbox()));*/
+
+
+            /*存入mysql中验证验证码*/
+          /*  ValidateCode code1=new ValidateCode();
+            code1.setMailbox(mailbox.getMailbox());
+            code1.setCode(vcode);
+            code1.setTime(String.valueOf(System.currentTimeMillis()));
+            ValidateCode validateCode = codeMapper.selectMailbox(code1);*/
+            /*if (validateCode==null){
+                codeMapper.insertValidateCode(code1);
+            }else {
+                codeMapper.updateMailbox(code1);
+            }*/
             try {
                 mailSender.send(message);
             } catch (Exception e) {
@@ -85,7 +114,7 @@ public class MailboxServiceImpl implements MailboxService {
                 return R.error("" + e);
             }
 
-            return R.success(vcode);
+            return R.success("发送验证码成功");
         }
         return R.error("发送失败");
     }
@@ -132,7 +161,7 @@ public class MailboxServiceImpl implements MailboxService {
 
     @Override
     public R addMailboxlogin(String username, String mailbox) {
-        Mailbox mailbox1=new Mailbox();
+        Mailbox mailbox1 = new Mailbox();
         mailbox1.setMailbox(mailbox);
         mailbox1.setAltertime(new SimpleDateFormat("YYYY-MM-dd").format(new Date()));
         mailbox1.setUsername(username);
@@ -140,11 +169,13 @@ public class MailboxServiceImpl implements MailboxService {
         return null;
     }
 
+
     @Override
     public R sendVerificationCodelogin(String mailbox) {
         VerificationCode code = new VerificationCode();
         String vcode = code.verificationCode();
         SimpleMailMessage message = new SimpleMailMessage();
+
         /*// 发件箱*/
         message.setFrom(from);
         /*// 收件箱可以是多个，用 String[] 表示多个收件箱*/
@@ -152,12 +183,16 @@ public class MailboxServiceImpl implements MailboxService {
         /* // 邮件主题*/
         message.setSubject("你本次的验证码是");
         /*邮件内容*/
-        message.setText("尊敬的" +mailbox + ",您好:\n"
+        message.setText("尊敬的" + mailbox + ",您好:\n"
                 + "\n本次请求的邮件验证码为:" + vcode + ",本验证码 5 分钟内效，请及时输入。（请勿泄露此验证码）\n"
                 + "\n如非本人操作，请忽略该邮件。\n(这是一封通过自动发送的邮件，请不要直接回复）");
         /*System.out.println(message.getFrom());*/
+
+
         try {
             mailSender.send(message);
+            redisTemplate.opsForValue().set(mailbox, vcode);
+            ;
         } catch (Exception e) {
             log.error("" + e);
             return R.error("" + e);

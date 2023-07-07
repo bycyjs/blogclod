@@ -18,4 +18,6 @@ public interface MailboxMapper {
     @Update("update mailbox set mailbox=#{mailbox} where username=#{username}")
     void altertimeMailbox(Mailbox mailbox);
 
+
+
 }

@@ -67,6 +67,8 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!-- 指定打包的jar包输出路径 -->
+                    <outputDirectory>F:\blog\service</outputDirectory>
                     <!-- 指定该 Main Class 为全局的唯一入口 -->
                     <mainClass>com.bycyjs.service.ServiceApplication</mainClass>
                     <layout>ZIP</layout>

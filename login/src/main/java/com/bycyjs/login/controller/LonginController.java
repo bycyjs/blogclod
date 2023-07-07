@@ -4,9 +4,8 @@ import com.bycyjs.login.mapper.UserMapper;
 import com.bycyjs.login.pojo.User;
 import com.bycyjs.login.service.LoginService;
 import com.bycyjs.login.service.MailboxService;
-import com.bycyjs.login.tool.R;
+import com.bycyjs.utils.common.R;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.ResultType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -69,7 +68,7 @@ public class LonginController {
 
     /*注册验证码*/
    @GetMapping("/sendVerificationCodelogin/{mailbox}")
-    public R  SendVerificationCodeLogin(@PathVariable("mailbox" ) String mailbox){
+    public R SendVerificationCodeLogin(@PathVariable("mailbox" ) String mailbox){
        return mailboxService.sendVerificationCodelogin(mailbox);
    }
 

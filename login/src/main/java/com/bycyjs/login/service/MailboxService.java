@@ -1,7 +1,7 @@
 package com.bycyjs.login.service;
 
 import com.bycyjs.login.pojo.Mailbox;
-import com.bycyjs.login.tool.R;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 

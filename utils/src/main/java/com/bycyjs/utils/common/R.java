@@ -1,4 +1,4 @@
-package com.bycyjs.login.tool;
+package com.bycyjs.utils.common;
 
 import lombok.Data;
 

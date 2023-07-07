@@ -4,7 +4,7 @@ import com.bycyjs.file.mapper.FileMapper;
 import com.bycyjs.file.pojo.File;
 import com.bycyjs.file.pojo.User;
 import com.bycyjs.file.service.FileService;
-import com.bycyjs.file.tool.HttpEntityTool;
+import com.bycyjs.utils.common.HttpEntityTool;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.IOUtils;

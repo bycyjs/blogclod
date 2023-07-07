@@ -1,35 +1,33 @@
 package com.bycyjs.md.service.impl;
 
+
 import com.bycyjs.md.mapper.FrontMapper;
+import com.bycyjs.md.model.CodeStyle;
 import com.bycyjs.md.model.Pager;
 import com.bycyjs.md.pojo.Front;
+import com.bycyjs.md.pojo.Tool;
 import com.bycyjs.md.service.MdService;
-import com.bycyjs.md.tool.R;
-import com.bycyjs.md.util.MdUtil;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.commonmark.Extension;
+import org.commonmark.ext.gfm.tables.TablesExtension;
+import org.commonmark.ext.image.attributes.ImageAttributesExtension;
+import org.commonmark.ext.task.list.items.TaskListItemsExtension;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.NodeRenderer;
+import org.commonmark.renderer.html.HtmlNodeRendererContext;
+import org.commonmark.renderer.html.HtmlNodeRendererFactory;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -71,12 +69,12 @@ public class MdServiceImpl implements MdService {
 
 
         InputStream inputStream = file.getInputStream();
-        File file1 = new File("F:\\blog\\html\\md\\learnnote\\Front\\" + time);
+        File file1 = new File("E:\\file\\md\\learnnote\\Front\\" + time);
 
         if (!file1.exists()) {
             file1.mkdirs();
         }
-        FileOutputStream fileOutputStream = new FileOutputStream("F:\\blog\\html\\md\\learnnote\\Front\\" + time + "\\" + originalFilename);
+        FileOutputStream fileOutputStream = new FileOutputStream("E:\\file\\md\\learnnote\\Front\\" + time + "\\" + originalFilename);
         /*执行文件拷贝*/
         IOUtils.copy(inputStream, fileOutputStream);
 
@@ -89,21 +87,49 @@ public class MdServiceImpl implements MdService {
     @Override
     public R selectFront(String time, String filename) throws IOException {
         time = time.substring(0, 10);
-        String flie = "F:\\blog\\html\\md\\learnnote\\Front\\" + time + "\\" + filename;
-        String fileContent;
-        try {
-            List<String> lines = Files.readAllLines(Paths.get(flie));
-            fileContent = String.join(System.lineSeparator(), lines);
-            /*System.out.println(fileContent);*/
-        } catch (IOException e) {
-            System.err.format("IOException: %s%n", e);
-            return R.error("" + e);
+        String flie = "E:\\file\\md\\learnnote\\Front\\" + time + "\\" + filename;
+        String file=txt2String(new File(flie));
+        List<Extension> extensions = Arrays.asList(TablesExtension.create(),
+                ImageAttributesExtension.create(), TaskListItemsExtension.create());
+        Parser parser = Parser.builder()
+                .extensions(extensions)
+                .build();
+        /*Node document = parser.parse("This is *Sparta*");*/
+        Node document= parser.parse(file);
+        /*System.out.println(document);*/
+        HtmlRenderer renderer = HtmlRenderer
+                .builder()
+                .nodeRendererFactory(new HtmlNodeRendererFactory() {
+                    @Override
+                    public NodeRenderer create(HtmlNodeRendererContext htmlNodeRendererContext) {
+                        return new CodeStyle(htmlNodeRendererContext);
+                    }
+                })
+                .build();
+        String html= renderer.render(document);  // "<p>This is <em>Sparta</em></p>\n"
+        Tool tool=new Tool();
+        html=tool.getHtmltop()+tool.getStyle()+tool.getHtmlcenter()+html+tool.getJs()+tool.getHtmldown();
+
+        return R.success(html);
+
+
+    }
+
+    public static String txt2String(File file){
+        StringBuilder result = new StringBuilder();
+        try{
+            // 构造一个BufferedReader类来读取文件
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String s = null;
+            // 使用readLine方法，一次读一行
+            while((s = br.readLine())!=null){
+                result.append(System.lineSeparator()+s);
+            }
+            br.close();
+        }catch(Exception e){
+            e.printStackTrace();
         }
-
-
-        return null;
-
-
+        return result.toString();
     }
 
 

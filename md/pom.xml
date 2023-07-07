@@ -33,8 +33,71 @@
            <groupId>org.mybatis.spring.boot</groupId>
            <artifactId>mybatis-spring-boot-starter</artifactId>
        </dependency>
+       <dependency>
+           <groupId>com.bycyjs.service</groupId>
+           <artifactId>utils</artifactId>
+           <version>0.0.1-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-devtools</artifactId>
+           <optional>true</optional>
+       </dependency>
 
-
+       <!--md转html工具-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--表格-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-gfm-tables</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--自动链接-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-autolink</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--删除线-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-gfm-strikethrough</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--标题-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-heading-anchor</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--下划线-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-ins</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--yaml-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-yaml-front-matter</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--图像-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-image-attributes</artifactId>
+           <version>0.20.0</version>
+       </dependency>
+       <!--任务列表-->
+       <dependency>
+           <groupId>org.commonmark</groupId>
+           <artifactId>commonmark-ext-task-list-items</artifactId>
+           <version>0.20.0</version>
+       </dependency>
 
    </dependencies>
     <build>

@@ -1,8 +1,8 @@
 package com.bycyjs.service.web;
 
 import com.bycyjs.service.bojo.Comment;
-import com.bycyjs.service.tool.HttpEntityTool;
-import com.bycyjs.service.tool.R;
+import com.bycyjs.utils.common.HttpEntityTool;
+import com.bycyjs.utils.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;

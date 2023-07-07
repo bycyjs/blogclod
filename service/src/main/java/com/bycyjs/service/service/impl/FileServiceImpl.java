@@ -2,7 +2,7 @@ package com.bycyjs.service.service.impl;
 
 import com.bycyjs.service.service.FileService;
 import com.bycyjs.service.tool.FileTool;
-import com.bycyjs.service.tool.R;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 
 @Service

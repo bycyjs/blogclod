@@ -1,13 +1,13 @@
 package com.bycyjs.comment.service;
 
 import com.bycyjs.comment.pojo.Comment;
-import com.bycyjs.comment.tool.R;
+import com.bycyjs.utils.common.R;
 import org.springframework.stereotype.Service;
 
 @Service
 public interface CommentService {
 
-    R findByCommentPager(Integer page,Integer size);
+    R findByCommentPager(Integer page, Integer size);
 
     R addComment(Comment comment);
 

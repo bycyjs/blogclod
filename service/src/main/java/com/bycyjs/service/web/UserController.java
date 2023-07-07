@@ -2,11 +2,10 @@ package com.bycyjs.service.web;
 
 import com.bycyjs.service.bojo.User;
 import com.bycyjs.service.config.Cyclostyle;
-import com.bycyjs.service.tool.HttpEntityTool;
-import com.bycyjs.service.tool.R;
+import com.bycyjs.utils.common.HttpEntityTool;
+import com.bycyjs.utils.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
@@ -54,8 +53,11 @@ public class UserController {
     }
 
 
-    @PostMapping("/validateUser")
-    public R validateUser(@RequestBody User user) throws Exception {
+    @PostMapping("/validateUser/{d}")
+    public R validateUser(@RequestBody User user,@PathVariable("d") Integer d) throws Exception {
+        if (d!=1){
+            return R.error("没有获取验证码");
+        }
         HttpEntity httpEntity1 = httpEntity.objPost(user);
         String url = "http://login/login/validateUser";
         String s = restTemplate.postForObject(url, httpEntity1, String.class);

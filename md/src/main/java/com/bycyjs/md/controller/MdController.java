@@ -1,7 +1,7 @@
 package com.bycyjs.md.controller;
 
 import com.bycyjs.md.service.MdService;
-import com.bycyjs.md.tool.R;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class MdController {
     private MdService mdService;
 
     @GetMapping("/findByFrontPager/{page}/{size}")
-    public R findByFrontPager(@PathVariable("page") Integer page,@PathVariable("size") Integer size){
+    public R findByFrontPager(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
         return mdService.findByFrontPager(page,size);
     }
 

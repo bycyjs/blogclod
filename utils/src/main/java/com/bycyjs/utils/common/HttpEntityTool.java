@@ -1,4 +1,4 @@
-package com.bycyjs.file.tool;
+package com.bycyjs.utils.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpEntity;
@@ -24,7 +24,6 @@ public class HttpEntityTool {
     }
     /*封装的一个工具类，可以封装HttpEntity类型
     * 里面默认封装了一个httpHeaders.add("Content-Type", "application/json");
-    *
     * */
 
     public HttpEntity objPost(Object object) throws Exception {

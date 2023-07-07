@@ -2,7 +2,7 @@ package com.bycyjs.comment.controller;
 
 import com.bycyjs.comment.pojo.Comment;
 import com.bycyjs.comment.service.CommentService;
-import com.bycyjs.comment.tool.R;
+import com.bycyjs.utils.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class CommentController {
 
 
     @GetMapping("findByCommentPager/{page}/{size}")
-    public R findByCommentPager(@PathVariable("page") Integer page,@PathVariable("size") Integer size){
+    public R findByCommentPager(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
         return commentService.findByCommentPager(page,size);
     }
     @PostMapping("/addComment")

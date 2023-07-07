@@ -2,7 +2,7 @@ package com.bycyjs.service.web;
 
 import com.bycyjs.service.bojo.File;
 import com.bycyjs.service.service.FileService;
-import com.bycyjs.service.tool.R;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/fileservice")

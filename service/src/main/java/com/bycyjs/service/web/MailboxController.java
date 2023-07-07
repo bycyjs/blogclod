@@ -1,6 +1,6 @@
 package com.bycyjs.service.web;
 
-import com.bycyjs.service.tool.R;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -18,7 +18,7 @@ public class MailboxController {
     private RestTemplate restTemplate;
     /*绑定邮箱*/
     @GetMapping("/addMailbox/{mailbox}")
-    public R addMailbox(HttpServletRequest request,@PathVariable String mailbox){
+    public R addMailbox(HttpServletRequest request, @PathVariable String mailbox){
         org.springframework.http.HttpHeaders headers=new HttpHeaders();
         headers.add("username",request.getHeader("username"));
         headers.add("password",request.getHeader("password"));
@@ -36,6 +36,7 @@ public class MailboxController {
 
     @GetMapping("/sendVerificationCode")
     public R sendVerificationCode(HttpServletRequest request){
+
         HttpHeaders headers=new HttpHeaders();
         headers.add("username",request.getHeader("username"));
         String url="http://login/mailbox/sendVerificationCode";

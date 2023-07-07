@@ -1,7 +1,7 @@
 package com.bycyjs.md.service;
 
-import com.bycyjs.md.pojo.Front;
-import com.bycyjs.md.tool.R;
+
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

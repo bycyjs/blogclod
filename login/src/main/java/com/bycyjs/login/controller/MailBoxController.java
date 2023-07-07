@@ -1,8 +1,7 @@
 package com.bycyjs.login.controller;
 
-import com.bycyjs.login.pojo.Mailbox;
 import com.bycyjs.login.service.MailboxService;
-import com.bycyjs.login.tool.R;
+import com.bycyjs.utils.common.R;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

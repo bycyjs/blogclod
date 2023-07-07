@@ -14,9 +14,9 @@ public interface MailboxService {
     R sendVerificationCode(HttpServletRequest request);
 
     /*添加邮箱*/
-    R addMailbox(HttpServletRequest request, String mailbox);
+    R addMailbox(HttpServletRequest request, String mailbox,String code);
 
-    R addMailboxlogin(String username, String mailbox);
+    R addMailboxlogin(String username, String mailbox,String code);
 
     R sendVerificationCodelogin(String mailbox);
 }

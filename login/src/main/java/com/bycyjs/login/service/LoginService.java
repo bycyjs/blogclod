@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface LoginService {
 
-    String addUser(User user);
+    R addUser(User user,String code);
     R validateUser(User user, String code);
     /*图片*/
 }

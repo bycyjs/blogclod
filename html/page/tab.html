@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="../css/title.css">
+    <link rel="stylesheet" href="../css/back.css">
+    <link rel="stylesheet" href="./tab.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <link rel="stylesheet" href="../js/exterior/node_modules/layui/dist/css/layui.css">
+    <!-- Import style -->
+    <link rel="stylesheet" href="../js/exterior/node_modules/element-plus/dist/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="../js/exterior/node_modules/vue/dist/vue.global.js"></script>
+    <!-- Import component library -->
+    <script src="../js/exterior/node_modules/element-plus/dist/index.full.js"></script>
+    <!--jq-->
+    <script src="../js/exterior/node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<div id="tab">
+    <div class="backgroundimg">
+
+        <!-- 回到顶部 -->
+        <div class="gobackto">
+            <a href="#">
+                <!-- <el-tooltip class="item" effect="dark" content="返回顶部" placement="top"> -->
+                <img src="../image/icon/返回顶部.png" alt="">
+                <!-- </el-tooltip> -->
+            </a>
+        </div>
+        <!--顶部导航栏-->
+        <div class="navigation">
+            <nav>
+                <div class="navigation_sidebar">
+                    <a href="javascript:;" id="sidebbar">
+                        <img src="../image/icon/菜单.png" alt="">
+                    </a>
+                </div>
+                <div class="navigation_log">
+                    <a href="../index.html">半夜才有精神|个人博客 </a>
+                </div>
+                <div class="navigation_nav">
+                    <ul>
+                        <li class="icon_link">
+                            <a href="../index.html">
+
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/home.png" alt="">
+                                    首页
+                                </div>
+
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="./tab.html">
+
+                                <div class="icon_link1">
+                                    <img src="../image/icon/标签_o.png" alt="">
+                                    标签
+                                </div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="html/taxon.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/quanlingyuguimo.png" alt="">
+                                    分类
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <router-link to="/pigeonhole" class="router-test">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/wendang.png" alt="">
+                                    归档
+
+                                </div>
+                            </router-link>
+                        </li>
+                        <li class="icon_link">
+                            <router-link to="/concerning" class="router-test">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/关于.png" alt="">
+                                    关于
+                                </div>
+
+                            </router-link>
+                        </li>
+
+                        <li class="icon_link">
+                            <router-link to="/webboard" class="router-test">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                    留言区
+                                </div>
+
+                            </router-link>
+                        </li>
+                        <li class="icon_link">
+                            <a href="html/friendlink.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/cylxr.png" alt="">
+                                    友链
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="#" class="icon_jt">
+                                <div class="icon_link1 icon_jt">
+                                    <img src="../image/icon/icon_2t92f13wu22/lianjie.png" alt="">
+                                    清单
+                                    <img class="icon_jiantou" src="../image/icon/jiantoushang.png" alt="">
+                                    <div class="icon_jttsk icon_jt">
+                                        <div class="icon_zw">
+                                            <div class="icon_jt">
+                                                <a href="#">
+                                                    <img src="../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                                    碎语
+                                                </a>
+                                            </div>
+                                            <div class="icon_jt">
+                                                <router-link to="/function" class="router-test">
+                                                    <img src="../image/icon/连接.png" alt="">
+                                                    功能
+                                                </router-link>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/搜索.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--内容-->
+
+<!--        <van-nav-bar class="title" title="标签"/>-->
+        <div class="background">
+            <div class="con_top_text">
+                <div class="con_top_text_n">
+                    <div class="con_top_text_title">
+                        <span>标签</span>
+                    </div>
+                    <div class="con_top_text_title2">
+                        <span>新的一天，新的开始</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab">
+            <div class="tab_n">
+
+                <div class="logtext">
+                    <img src="../image/icon/icon_h9lil6qalut/标签_o.png" alt="">
+                    <span>文章标签</span>
+                </div>
+
+
+                <div class="tab_content ">
+                    <a href="#" class="tab_text" >
+                        <span>java</span>
+                    </a>
+                    <a href="#" class="tab_text">
+                        <span>html</span>
+                    </a>
+                    <a href="#" class="tab_text">
+                        <span>前端笔记</span>
+                    </a>
+                    <a href="#" class="tab_text">
+                        <span>后端笔记</span>
+                    </a>
+                    <a href="#" class="tab_text">
+                        <span>js</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!--版权-->
+        <div class="copyright">
+            <div class="copyright_top">
+                <div class="copyright_top_ti">
+                    <div>版权所有©2023半夜才有精神|个人主页|Welcome to here!</div>
+                    <div>xxxxxxxxxxxx</div>
+                </div>
+                <div class="copyright_top_log">
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/github.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/QQ.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/weixin.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/youxiang.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+        </div>
+        <!-- 手机端底部导航栏 -->
+        <van-tabbar v-model="active" class="phoneNav">
+            <van-tabbar-item icon="home-o">
+                <router-link to="/home" class="router-test">
+                    主页
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="apps-o">
+                <router-link to="/tab" class="router-test">
+                    标签
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="friends-o">
+                <router-link to="/phonnav" class="router-test">导航</router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="setting-o">
+                <router-link to="/pigeonhole" class="router-test"> 归档</router-link>
+            </van-tabbar-item>
+        </van-tabbar>
+
+    </div>
+</div>
+<script>
+
+    const {createApp, ref, onMounted} = Vue;
+    createApp({
+        setup() {
+            const active = ref('home')
+            return {
+                active
+            }
+
+        },
+
+    }).use(ElementPlus).mount("#tab")
+
+
+    $(() => {
+        var tabText = $(".tab_text")
+        var color = ["#a7f4b7", "#a892dc", "#dfad69", "#df698d", "#7ac4bd", "#87d994", "#c7e7cc"]
+        for (var i = 0; i < tabText.length; i++) {
+            var sj = Math.floor(Math.random() * 7);
+            $(tabText[i]).css("background-color", color[sj]);
+
+        }
+        $(".tab_text").hover(function () {
+                $(this).css("background-color", "rgb(178, 230, 212)");
+
+            }, function () {
+                // out
+                var sj = Math.floor(Math.random() * 7);
+                $(this).css("background-color", color[sj]);
+            }
+        );
+    })
+
+
+
+
+</script>
+
+
+<script src="../js/blog-static.cnblogs.com_files_quaint_sakuraPlus.js"></script>
+</body>
+</html>

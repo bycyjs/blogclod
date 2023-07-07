@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>功能</title>
+    <link rel="stylesheet" href="../../css/back.css">
+    <link rel="stylesheet" href="./enroll.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <!--    导入 layui-->
+    <link rel="stylesheet" href="../../js/exterior/node_modules/layui/dist/css/layui.css">
+    <script src="../../js/exterior/node_modules/layui/dist/layui.js"></script>
+    <!--    Import axios-->
+    <script src="../../js/exterior/node_modules/axios/dist/axios.js"></script>
+    <script src="../../js/tool/axiosInstance.js"></script>
+    <!-- Import style -->
+    <link rel="stylesheet" href="../../js/exterior/node_modules/element-plus/dist/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="../../js/exterior/node_modules/vue/dist/vue.global.js"></script>
+    <!-- Import component library -->
+    <script src="../../js/exterior/node_modules/element-plus/dist/index.full.js"></script>
+    <!--jq-->
+    <script src="../../js/exterior/node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<div id="enroll">
+    <div class="backgroundimg">
+
+        <!-- 回到顶部 -->
+        <div class="gobackto">
+            <a href="#">
+                <!-- <el-tooltip class="item" effect="dark" content="返回顶部" placement="top"> -->
+                <img src="../../image/icon/返回顶部.png" alt="">
+                <!-- </el-tooltip> -->
+            </a>
+        </div>
+        <!--顶部导航栏-->
+        <div class="navigation">
+            <nav>
+                <div class="navigation_sidebar">
+                    <a href="javascript:;" id="sidebbar">
+                        <img src="../../image/icon/菜单.png" alt="">
+                    </a>
+                </div>
+                <div class="navigation_log">
+                    <a href="../../index.html">半夜才有精神|个人博客 </a>
+                </div>
+                <div class="navigation_nav">
+                    <ul>
+                        <li class="icon_link">
+                            <a href="../../index.html">
+
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/home.png" alt="">
+                                    首页
+                                </div>
+
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../../page/tab.html">
+
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/标签_o.png" alt="">
+                                    标签
+                                </div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="html/taxon.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/quanlingyuguimo.png" alt="">
+                                    分类
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../../page/pigeonhole.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/wendang.png" alt="">
+                                    归档
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../../page/concerning.html">
+                                <div class="icon_link1">
+                                    <img src="..//..image/icon/关于.png" alt="">
+                                    关于
+                                </div>
+
+                            </a>
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="../../page/webBoard.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                    留言区
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="html/friendlink.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/cylxr.png" alt="">
+                                    友链
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="#" class="icon_jt">
+                                <div class="icon_link1 icon_jt">
+                                    <img src="../../image/icon/icon_2t92f13wu22/lianjie.png" alt="">
+                                    清单
+                                    <img class="icon_jiantou" src="../../image/icon/jiantoushang.png" alt="">
+                                    <div class="icon_jttsk icon_jt">
+                                        <div class="icon_zw">
+                                            <div class="icon_jt">
+                                                <a href="#">
+                                                    <img src="../../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                                    碎语
+                                                </a>
+                                            </div>
+                                            <div class="icon_jt">
+                                                <a href="../function.html" >
+                                                    <img src="../../image/icon/连接.png" alt="">
+                                                    功能
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/搜索.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--页面内容-->
+
+
+            <div class="background">
+                <div class="con_top_text">
+                    <div class="con_top_text_n">
+                        <div class="con_top_text_title">
+                            <span>注册</span>
+                        </div>
+                        <div class="con_top_text_title2">
+
+
+                            <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign"
+                                     style="max-width: 460px">
+                                <el-form-item label="用户名">
+                                    <el-input v-model="formLabelAlign.username"/>
+                                </el-form-item>
+                                <el-form-item label="密码">
+                                    <el-input v-model="formLabelAlign.password"/>
+                                </el-form-item>
+                                <el-form-item label="要绑定的邮箱">
+                                    <el-input v-model="formLabelAlign.mailboxvalidate"/>
+                                </el-form-item>
+                                <div style="display: flex;">
+
+                                    <el-form-item label="邮箱验证码">
+                                        <el-input v-model="mailboxv"/>
+                                    </el-form-item>
+
+                                    <el-row class="mb-4" style="margin-top:30px; ">
+                                        <el-button type="primary" plain @click="mailboxvalidate()">获取邮箱验证吗</el-button>
+                                    </el-row>
+
+
+                                </div>
+
+
+                            </el-form>
+                            <el-row class="mb-4" style="flex-wrap: wrap;">
+                                <el-button type="primary" round>
+                                    <router-link to="/login" class="router-test tab_text">
+                                        登陆
+                                    </router-link>
+                                </el-button>
+                                <el-button type="success" round @click="enroll()">注册</el-button>
+                            </el-row>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        <!--版权-->
+        <div class="copyright">
+            <div class="copyright_top">
+                <div class="copyright_top_ti">
+                    <div>版权所有©2023半夜才有精神|个人主页|Welcome to here!</div>
+                    <div>xxxxxxxxxxxx</div>
+                </div>
+                <div class="copyright_top_log">
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/github.png" alt=""></a></div>
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/QQ.png" alt=""></a></div>
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/weixin.png" alt=""></a></div>
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/youxiang.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+        </div>
+        <!-- 手机端底部导航栏 -->
+        <van-tabbar v-model="active" class="phoneNav">
+            <van-tabbar-item icon="home-o">
+                <router-link to="/home" class="router-test">
+                    主页
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="apps-o">
+                <router-link to="/tab" class="router-test">
+                    标签
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="friends-o">
+                <router-link to="/phonnav" class="router-test">导航</router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="setting-o">
+                <router-link to="/pigeonhole" class="router-test"> 归档</router-link>
+            </van-tabbar-item>
+        </van-tabbar>
+
+    </div>
+</div>
+<script>
+
+
+    const {createApp, ref, onMounted, reactive} = Vue;
+
+    createApp({
+        setup() {
+
+            const labelPosition = ref('top')
+            const formLabelAlign = reactive({
+                username: '',
+                password: '',
+                mailboxvalidate: '',
+            })
+            const mailboxv = ref();
+            /*const mailboxa = ref();*/
+            const d = ref(0);
+
+            function enroll() {
+                /* if (d.value !== 1) {
+                   alert("没有获取验证码")
+                   return;
+                 }*/
+                /*if (mailboxa.value === mailboxv.value) {*/
+                axios({
+                    method: 'post',
+                    url: "userservice/login/"+mailboxv.value,
+                    data: {
+                        username: formLabelAlign.username,
+                        password: formLabelAlign.password,
+                        mailboxvalidate: formLabelAlign.mailboxvalidate
+
+                    }
+                }).then((result) => {
+                    if (result.data.code === 1) {
+                        alert(result.data.data)
+                        var userdata = {
+                            "username": formLabelAlign.username,
+                            "password": formLabelAlign.password
+                        }
+                        localStorage.setItem("userdata", JSON.stringify(userdata))
+                        location.href='../function.html'
+                    } else {
+                        alert(result.data.msg)
+                    }
+
+                }).catch((err) => {
+
+                });
+                /*  }*/
+
+            }
+
+            /*发送验证码*/
+
+            function mailboxvalidate() {
+
+                axios({
+                    method: 'get',
+                    url: "userservice/sendVerificationCodelogin/" + formLabelAlign.mailboxvalidate,
+                }).then((result) => {
+                    /* mailboxa.value = result.data.data*/
+                    /* d.value = 1*/
+                    if (result.data.code===1){
+                        alert(result.data.data)
+                    }else {
+                        alert(result.data.msg)
+                    }
+
+                }).catch((err) => {
+                    alert("验证码发送失败")
+                });
+            }
+
+            return {
+                labelPosition,
+                formLabelAlign,mailboxv,d,
+                enroll,mailboxvalidate,
+
+            }
+
+        },
+
+    }).use(ElementPlus).mount("#enroll")
+
+
+</script>
+
+
+<script src="../../js/blog-static.cnblogs.com_files_quaint_sakuraPlus.js"></script>
+</body>
+</html>

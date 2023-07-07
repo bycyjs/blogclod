@@ -17,12 +17,12 @@ public class MailboxController {
     @Autowired
     private RestTemplate restTemplate;
     /*绑定邮箱*/
-    @GetMapping("/addMailbox/{mailbox}")
-    public R addMailbox(HttpServletRequest request, @PathVariable String mailbox){
+    @GetMapping("/addMailbox/{mailbox}/{code}")
+    public R addMailbox(HttpServletRequest request, @PathVariable String mailbox,@PathVariable("code")String code){
         org.springframework.http.HttpHeaders headers=new HttpHeaders();
         headers.add("username",request.getHeader("username"));
         headers.add("password",request.getHeader("password"));
-        String url="http://login/mailbox/addMailbox/"+mailbox;
+        String url="http://login/mailbox/addMailbox/"+mailbox+"/"+code;
         HttpEntity http=new HttpEntity(headers);
         ResponseEntity<R> exchange = restTemplate.exchange(url, HttpMethod.GET, http, R.class);
         return exchange.getBody();

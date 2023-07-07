@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.backgroundimg {
+    width: 100%;
+    background: url("../image/background.jpg") no-repeat;
+    /* background-size: 100%; */
+    background-attachment: fixed;
+    background-position: center 0;
+    background-size: cover;
+
+}
+
+/* 回到顶部 */
+.gobackto {
+    position: fixed;
+    top: 80%;
+    left: 90%;
+
+    :is(img) {
+        min-height: 1vh;
+    }
+}
+
+
+/* 顶部导航栏 */
+.navigation {
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    z-index: 998;
+    @media screen and (max-device-width: 1000px){
+        display: none;
+    }
+    .navigation_sidebar {
+        display: none;
+
+        :is(img) {
+            max-height: 20px;
+        }
+    }
+
+    .navigation_log {
+        margin-left: 5%;
+        @media screen and (max-device-width: 1000px){
+            width: 100%;
+            text-align: center;
+            margin-left: 0;
+
+        }
+        :is(a) {
+            color: #a0b6e3;
+            font-size: 2vw;
+            @media screen and (max-device-width: 1000px){
+                font-size: 3vh;
+            }
+        }
+    }
+
+    :is(nav) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    :is(a) {
+        text-decoration: none;
+    }
+
+    .navigation_nav {
+        :is(ul) {
+            margin: auto 0;
+            display: flex;
+
+            a {
+                color: #e085a2;
+                font-size: 1vw;
+            }
+        }
+
+        :is(li) {
+            margin-right: 2vw;
+        }
+
+        .icon_link {
+            :is(img) {
+                max-height: 1.5vw;
+            }
+
+            /* 清单 */
+            .icon_jttsk {
+
+                width: 100%;
+                position: fixed;
+                z-index: 998;
+                display: none;
+            }
+
+            .icon_link1:hover {
+                .icon_jttsk {
+                    display: block;
+                }
+            }
+
+            .icon_zw {
+                padding-top: 2.5vw;
+
+                :is(div) {
+                    margin: 0;
+                    padding: 0.5vw;
+                }
+            }
+
+
+        }
+        @media screen and (max-device-width: 1000px){
+            display: none;
+        }
+    }
+
+}
+
+
+/* 背景，只占一个页面 */
+.background {
+    width: 100%;
+    background: url("../image/background.jpg") no-repeat;
+    background-size: cover;
+}
+
+/* 版权 */
+.copyright {
+    background-color: rgba(198, 190, 241, 0.5);
+
+    .copyright_top {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 10%;
+        margin-right: 10%;
+
+        .copyright_top_log {
+            margin-top: 2vh;
+            display: flex;
+
+            :is(img) {
+                margin-left: 2vw;
+                max-height: 3vh;
+            }
+        }
+
+        .copyright_top_ti {
+            div {
+                margin-top: 2vw;
+            }
+        }
+
+        .copyright_text {
+            margin-top: 2vh;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+    }
+    @media screen and (max-device-width:1000px) {
+        display: none;
+    }
+
+}
+/**/
+
+
+
+
+/*手机端导航*/
+   .phoneNav{
+       display: none;
+       @media screen and (max-device-width: 1000px) {
+           display: block;
+           display: flex;
+
+
+       }
+   }

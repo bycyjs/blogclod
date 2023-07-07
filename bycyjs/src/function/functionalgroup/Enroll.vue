@@ -11,18 +11,18 @@ const formLabelAlign = reactive({
   mailboxvalidate: '',
 })
 const mailboxv = ref();
-const mailboxa = ref();
+/*const mailboxa = ref();*/
 const d = ref(0);
 
 function enroll() {
-  if (d.value !== 1) {
+ /* if (d.value !== 1) {
     alert("没有获取验证码")
     return;
-  }
-  if (mailboxa.value === mailboxv.value) {
+  }*/
+  /*if (mailboxa.value === mailboxv.value) {*/
     axios({
       method: 'post',
-      url: "userservice/login/" + d.value,
+      url: "userservice/login/"+mailboxv.value,
       data: {
         username: formLabelAlign.username,
         password: formLabelAlign.password,
@@ -31,7 +31,7 @@ function enroll() {
       }
     }).then((result) => {
       if (result.data.code === 1) {
-        alert("注册成功")
+        alert(result.data.data)
         var userdata = {
           "username": formLabelAlign.username,
           "password": formLabelAlign.password
@@ -47,9 +47,11 @@ function enroll() {
     }).catch((err) => {
 
     });
-  }
+/*  }*/
 
 }
+
+/*发送验证码*/
 
 function mailboxvalidate() {
 
@@ -57,9 +59,14 @@ function mailboxvalidate() {
     method: 'get',
     url: "userservice/sendVerificationCodelogin/" + formLabelAlign.mailboxvalidate,
   }).then((result) => {
-    mailboxa.value = result.data.data
-    d.value = 1
-    alert("验证码发送成功")
+   /* mailboxa.value = result.data.data*/
+   /* d.value = 1*/
+    if (result.data.code===1){
+      alert(result.data.data)
+    }else {
+      alert(result.data.msg)
+    }
+
   }).catch((err) => {
     alert("验证码发送失败")
   });

@@ -1,0 +1,52 @@
+
+.tab {
+    width: 100%;
+    background-color: #d8d0d0;
+
+
+}
+
+.tab_n {
+
+    width: 70vw;
+    background-color: #ffffff;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 1.5vw;
+
+}
+
+.logtext {
+    margin: auto;
+    text-align: center;
+    font-size: 2vw;
+    margin: 2vw;
+}
+
+.tab_content {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+}
+
+.tab_content a {
+    display: block;
+    padding: 1vw;
+    margin: 1vh;
+    border: 1px solid #ccc;
+    border-radius: 1.5vw;
+    /* box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); */
+
+}
+
+.tab_text span {
+    font-size: 20px;
+
+}
+
+.logtext img {
+    transform: rotateY(180deg);
+    max-height: 3vw;
+}

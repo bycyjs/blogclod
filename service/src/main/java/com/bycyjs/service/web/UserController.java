@@ -26,38 +26,28 @@ public class UserController {
 
     private HttpEntityTool httpEntity = new HttpEntityTool();
 
-    @PostMapping("/login")
-    public R logIn(@RequestBody User user) throws Exception {
+    @PostMapping("/login/{code}")
+    public R logIn(@RequestBody User user, @PathVariable("code") String code) throws Exception {
         HttpEntity httpEntity1 = httpEntity.objPost(user);
-        String url = "http://login/login/adduser";
-        String validate = null;
+        String url = "http://login/login/adduser/" + code;
+        R validate;
         try {
-            validate = restTemplate.postForObject(url, httpEntity1, String.class);
+            validate = restTemplate.postForObject(url, httpEntity1, R.class);
         } catch (Exception e) {
-            log.info("" + e);
+            log.error("" + e);
             return R.error("用户注册失败");
         }
-        log.info(validate);
-        if ("fail".equals(validate)) {
-            return R.error("出错");
-        } else if ("1".equals(validate)) {
-            return R.error("用户名已存在");
-        } else if ("succeed".equals(validate)) {
-            return R.success(validate);
-        } else {
-            log.info(validate);
-            return R.success("未知错误");
-        }
 
+        return validate;
 
     }
 
 
     @PostMapping("/validateUser/{code}")
-    public R validateUser(@RequestBody User user,@PathVariable("code") String code) throws Exception {
+    public R validateUser(@RequestBody User user, @PathVariable("code") String code) throws Exception {
 
         HttpEntity httpEntity1 = httpEntity.objPost(user);
-        String url = "http://login/login/validateUser/"+code;
+        String url = "http://login/login/validateUser/" + code;
         R r = restTemplate.postForObject(url, httpEntity1, R.class);
         /*if ("fail".equals(s)) {
             return R.success("出错");
@@ -79,14 +69,16 @@ public class UserController {
 //    private String dateformat;*/
     @Autowired
     private Cyclostyle cyclostyle;
-    @GetMapping("/dateformat")
-    public String dateformat(){
-        return  LocalDateTime.now().format(DateTimeFormatter.ofPattern(cyclostyle.getDateformat()));
-    }
-    @GetMapping("/sendVerificationCodelogin/{mailbox}")
-    public R  SendVerificationCodeLogin(@PathVariable("mailbox" ) String mailbox){
-        String url ="http://login/login/sendVerificationCodelogin/"+mailbox;
 
-        return restTemplate.getForObject(url,R.class);
+    @GetMapping("/dateformat")
+    public String dateformat() {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(cyclostyle.getDateformat()));
+    }
+
+    @GetMapping("/sendVerificationCodelogin/{mailbox}")
+    public R SendVerificationCodeLogin(@PathVariable("mailbox") String mailbox) {
+        String url = "http://login/login/sendVerificationCodelogin/" + mailbox;
+
+        return restTemplate.getForObject(url, R.class);
     }
 }

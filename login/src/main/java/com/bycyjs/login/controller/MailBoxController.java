@@ -14,9 +14,9 @@ public class MailBoxController {
     @Autowired
     private MailboxService mailboxService;
 
-    @GetMapping("/addMailbox/{mailbox}")
-    public R addMailbox(HttpServletRequest request, @PathVariable String mailbox ){
-        return mailboxService.addMailbox(request,mailbox);
+    @GetMapping("/addMailbox/{mailbox}/{code}")
+    public R addMailbox(HttpServletRequest request, @PathVariable String mailbox ,@PathVariable("code") String code){
+        return mailboxService.addMailbox(request,mailbox,code);
     }
 
     @GetMapping("/sendVerificationCode")

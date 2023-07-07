@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/iframe.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/back.css">
+    <link rel="stylesheet" href="./css/title.css">
+    <link rel="stylesheet" href="./js/exterior/node_modules/layui/dist/css/layui.css">
+    <!-- Import style -->
+    <!--    <link rel="stylesheet" href="./js/exterior/node_modules/element-plus/theme-chalk/index.css"/>-->
+    <link rel="stylesheet" href="./js/exterior/node_modules/element-plus/dist/index.css"/>
+
+    <!-- Import Vue 3 -->
+    <script src="./js/exterior/node_modules/vue/dist/vue.global.js"></script>
+    <!-- Import component library -->
+    <script src="./js/exterior/node_modules/element-plus/dist/index.full.js"></script>
+    <!--    <script src="//unpkg.com/element-plus"></script>-->
+    <!--jq-->
+    <script src="./js/exterior/node_modules/jquery/dist/jquery.js"></script>
+    <style>
+
+        .tooltip-base-box {
+            width: 600px;
+        }
+
+        .tooltip-base-box .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tooltip-base-box .center {
+            justify-content: center;
+        }
+
+        .tooltip-base-box .box-item {
+            width: 110px;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="index">
+
+    <div class="backgroundimg">
+
+        <!-- 回到顶部 -->
+        <div class="gobackto">
+            <a href="#">
+                <!-- <el-tooltip class="item" effect="dark" content="返回顶部" placement="top"> -->
+                <img src="./image/icon/返回顶部.png" alt="">
+                <!-- </el-tooltip> -->
+            </a>
+        </div>
+        <!--顶部导航栏-->
+        <div class="navigation">
+            <nav>
+                <div class="navigation_sidebar">
+                    <a href="javascript:;" id="sidebbar">
+                        <img src="./image/icon/菜单.png" alt="">
+                    </a>
+                </div>
+                <div class="navigation_log">
+                    <a href="index.html">半夜才有精神|个人博客 </a>
+                </div>
+                <div class="navigation_nav">
+                    <ul>
+                        <li class="icon_link">
+                            <a href="index.html">
+
+                                <div class="icon_link1">
+                                    <img src="./image/icon/icon_2t92f13wu22/home.png" alt="">
+                                    首页
+                                </div>
+
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="./page/tab.html">
+
+                                <div class="icon_link1">
+                                    <img src="./image/icon/标签_o.png" alt="">
+                                    标签
+                                </div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="html/taxon.html">
+                                <div class="icon_link1">
+                                    <img src="./image/icon/icon_2t92f13wu22/quanlingyuguimo.png" alt="">
+                                    分类
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="./page/pigeonhole.html">
+                                <div class="icon_link1">
+                                    <img src="./image/icon/icon_2t92f13wu22/wendang.png" alt="">
+                                    归档
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <router-link to="/concerning" class="router-test">
+                                <div class="icon_link1">
+                                    <img src="./image/icon/关于.png" alt="">
+                                    关于
+                                </div>
+
+                            </router-link>
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="./page/webBoard.html">
+                                <div class="icon_link1">
+                                    <img src="./image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                    留言区
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="html/friendlink.html">
+                                <div class="icon_link1">
+                                    <img src="./image/icon/icon_2t92f13wu22/cylxr.png" alt="">
+                                    友链
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="#" class="icon_jt">
+                                <div class="icon_link1 icon_jt">
+                                    <img src="./image/icon/icon_2t92f13wu22/lianjie.png" alt="">
+                                    清单
+                                    <img class="icon_jiantou" src="./image/icon/jiantoushang.png" alt="">
+                                    <div class="icon_jttsk icon_jt">
+                                        <div class="icon_zw">
+                                            <div class="icon_jt">
+                                                <a href="#">
+                                                    <img src="./image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                                    碎语
+                                                </a>
+                                            </div>
+                                            <div class="icon_jt">
+                                                <a href="./functon/function.html" class="router-test">
+                                                    <img src="./image/icon/连接.png" alt="">
+                                                    功能
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="">
+                                <div class="icon_link1">
+                                    <img src="./image/icon/icon_2t92f13wu22/搜索.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--内容-->
+
+        <div class="background">
+            <!--<van-nav-bar class="title" title="主页"/>-->
+
+
+            <div class="con_top_text">
+                <div class="con_top_text_n">
+
+                    <div class="con_top_text_title">
+                        <span>半夜才有精神</span>
+                    </div>
+
+
+                    <div class="con_top_text_title2">
+                        <span>新的一天，新的开始</span>
+                    </div>
+                    <div class="con_top_text_btu">
+                        <div class="con_top_text_btu1">
+                            <a href="javascript:;">
+                                <img src="./image/icon/箭头_页面_向下_o.png" alt="">
+                                开始阅读
+                            </a>
+                        </div>
+                        <div class="con_top_text_btu2">
+                            <a href="javascript:;">
+                                <img src="./image/icon/icon_h9lil6qalut/QQ.png" alt="">
+                                QQ
+                            </a>
+                        </div>
+                    </div>
+                    <div class="con_top_text_log">
+                        <ul>
+                            <li>
+
+                                <a href="#" class="con_top_text_log_github">
+
+                                    <el-tooltip class="box-item" effect="dark" content="访问我的GitHub" placement="top">
+                                        <img src="./image/icon/icon_h9lil6qalut/github.png" alt="">
+                                    </el-tooltip>
+
+                                </a>
+
+                            </li>
+                            <li>
+
+                                <a href="#" class="con_top_text_log_youxing">
+                                    <el-tooltip class="box-item" effect="dark" content="邮件联系我" placement="top">
+
+                                        <img src="./image/icon/icon_h9lil6qalut/youxiang.png" alt="">
+
+                                    </el-tooltip>
+
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="#" class="con_top_text_log_qq">
+                                    <el-tooltip class="box-item" effect="dark" content="QQ联系我：704812528"
+                                                placement="top">
+                                        <img src="./image/icon/icon_h9lil6qalut/QQ.png" alt="">
+                                    </el-tooltip>
+
+                                </a>
+                            </li>
+                            <li>
+
+                                <a href="#" data-title="删除删除删除">
+                                    <el-tooltip class="box-item" effect="dark" content="微信扫一扫" placement="top">
+                                        <router-link to="weixing" class="router-test tab_text">
+                                            <img src="./image/icon/icon_h9lil6qalut/weixin.png" alt="">
+                                        </router-link>
+                                    </el-tooltip>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+            <div class="content_top">
+                <div class="content_top_title">
+                    <div>
+                        <img src="" alt="">
+                        <h1>理想的自己</h1>
+                    </div>
+                </div>
+                <div class="content_top1">
+                    洋葱、萝卜和西红柿不相信世界上有南瓜这种东西， 它们认为那是一种空想。 南瓜不说话， 默默地生长。 ——
+                    于尔克•舒比格
+                </div>
+                <div class="content_top2">
+                    人的一生， 其实就是一场自己对自己的战争。 每个人的身上，都有两个自己：
+                    好的自己和坏的自己。让积极打败消极，让高尚打败鄙陋，让真诚打败虚伪，让宽容打败计较，让快乐打败忧郁，让勤奋打败懒惰，让坚强打败脆弱。
+                    只要你愿意，完全可以一辈子都做最好的自己。
+                </div>
+            </div>
+            <div class="content_mid">
+                <div class="content_top_title">
+                    <div>
+                        <img src="" alt="">
+                        <h1>公告</h1>
+                    </div>
+                </div>
+                <div class="content_mid_content">
+                    本博客所发布的各种软件文章仅限用于学习和研究目的；任何人不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站信息来自网络，版权争议与本站无关。您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容。如果您喜欢该程序，请支持正版软件，购买注册，得到更好的正版服务。如有侵权请邮件与我联系处理。
+                </div>
+            </div>
+            <div class="content_next">
+                <div class="content_top_title">
+                    <div>
+                        <img src="" alt="">
+                        <h1>推荐文章</h1>
+                    </div>
+                </div>
+                <div class="content_next_content_w">
+                    <div class="content_next_content">
+                        <div class="content_next_content0">
+
+                            <div v-for="tab in tabss" :style="divimg" class="content_next_content1 essay">
+
+                                <div class="essay_a">
+                                    <span>{{ tab.span }}</span>
+                                </div>
+                                <div class="essay_b">
+                                    <h1>{{ tab.h1 }}</h1>
+                                </div>
+
+                                <div class="essay_c">
+                  <span>
+                    {{ tab.span1 }}
+                  </span>
+                                </div>
+                                <div class="essay_d">
+                                    <a href="#">阅读更多</a>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="last">
+            <div class="last_external">
+
+                <div class="lasta">
+                    <a href="#">
+                        <div class="last_a">
+                            <h1>某小程序加密逻辑解析</h1>
+                        </div>
+                        <div class="last_b">
+                            <div class="last_c">
+                                <p>
+                                    前言近期学校开始让在外实习的，每天都得打卡校友邦，再加上外地朋友也由于种种原因要回学校，但还要打卡，就开始研究了这个东西，但是呢以前写过，回过头跑程序发现报错，估摸着那边改了或者加了防护，前面签到啥的接口没什么好提的，没啥难度，这次记录的是
+                                </p>
+                            </div>
+                            <div class="last_d">
+                                <span>20xx-3-5</span>
+                                <span>半夜才有精神</span>
+                            </div>
+                            <hr>
+                            <div class="last_e">
+                                <div>
+                                    <span>java</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!--版权-->
+        <div class="copyright">
+            <div class="copyright_top">
+                <div class="copyright_top_ti">
+                    <div>版权所有©2023半夜才有精神|个人主页|Welcome to here!</div>
+                    <div>xxxxxxxxxxxx</div>
+                </div>
+                <div class="copyright_top_log">
+                    <div><a href=""><img src="./image/icon/icon_h9lil6qalut/github.png" alt=""></a></div>
+                    <div><a href=""><img src="./image/icon/icon_h9lil6qalut/QQ.png" alt=""></a></div>
+                    <div><a href=""><img src="./image/icon/icon_h9lil6qalut/weixin.png" alt=""></a></div>
+                    <div><a href=""><img src="./image/icon/icon_h9lil6qalut/youxiang.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+        </div>
+        <!-- 手机端底部导航栏 -->
+        <van-tabbar v-model="active" class="phoneNav">
+            <van-tabbar-item icon="home-o">
+                <router-link to="/home" class="router-test">
+                    主页
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="apps-o">
+                <router-link to="/tab" class="router-test">
+                    标签
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="friends-o">
+                <router-link to="/phonnav" class="router-test">导航</router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="setting-o">
+                <router-link to="/pigeonhole" class="router-test"> 归档</router-link>
+            </van-tabbar-item>
+        </van-tabbar>
+
+    </div>
+</div>
+<!--<script src="js/exterior/yinghua.js"></script>-->
+<script>
+    // import startSakura from 'html/js/yinghua'
+
+    const {createApp, ref, onMounted} = Vue;
+
+
+     createApp({
+
+        setup() {
+            // onMounted(()=>{
+            //     startSakura()
+            // })
+            const active = ref('home')
+            const message = ref('Hello vue!')
+            const tabss = ref([
+                {
+                    span: "笔记",
+                    h1: "前端笔记",
+                    span1: "笔记目录",
+                    aurl: "html/md/learnnote/catalog.html",
+
+
+                }, {
+                    span: "笔记",
+                    h1: "后端学习笔记",
+                    span1: "笔记目录",
+                    aurl: "test",
+
+                }
+            ])
+            const background = ref([
+                "./image/divbackground/1.jpeg",
+                "./image/divbackground/2.jpg",
+                "./image/divbackground/3.png",
+                "./image/divbackground/4.jpg",
+                "./image/divbackground/5.png",
+                "./image/divbackground/6.png",
+                "./image/divbackground/7.png",
+                "./image/divbackground/8.png",
+            ])
+            const divimg = ref({
+                background: 'url(' + background.value[1] + ') no-repeat',
+                backgroundSize: 'cover'
+            })
+
+
+            return {
+                message,
+                tabss,
+                background,
+                divimg,
+                active
+            }
+
+
+        },
+
+    }).use(ElementPlus).mount("#index")
+
+  
+
+
+</script>
+<script src="js/blog-static.cnblogs.com_files_quaint_sakuraPlus.js"></script>
+</body>
+</html>

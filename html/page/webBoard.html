@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>归档</title>
+    <link rel="stylesheet" href="../css/title.css">
+    <link rel="stylesheet" href="./webBoard.css">
+    <link rel="stylesheet" href="../css/back.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <link rel="stylesheet" href="../js/exterior/node_modules/layui/dist/css/layui.css">
+    <script src="../js/exterior/node_modules/layui/dist/layui.js"></script>
+    <!--    Import axios-->
+    <script src="../js/exterior/node_modules/axios/dist/axios.js"></script>
+    <script src="../js/tool/axiosInstance.js"></script>
+    <!-- Import style -->
+    <link rel="stylesheet" href="../js/exterior/node_modules/element-plus/dist/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="../js/exterior/node_modules/vue/dist/vue.global.js"></script>
+    <!-- Import component library -->
+    <script src="../js/exterior/node_modules/element-plus/dist/index.full.js"></script>
+    <!--jq-->
+    <script src="../js/exterior/node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<div id="webBoard">
+    <div class="backgroundimg">
+
+        <!-- 回到顶部 -->
+        <div class="gobackto">
+            <a href="#">
+                <!-- <el-tooltip class="item" effect="dark" content="返回顶部" placement="top"> -->
+                <img src="../image/icon/返回顶部.png" alt="">
+                <!-- </el-tooltip> -->
+            </a>
+        </div>
+        <!--顶部导航栏-->
+        <div class="navigation">
+            <nav>
+                <div class="navigation_sidebar">
+                    <a href="javascript:;" id="sidebbar">
+                        <img src="../image/icon/菜单.png" alt="">
+                    </a>
+                </div>
+                <div class="navigation_log">
+                    <a href="../index.html">半夜才有精神|个人博客 </a>
+                </div>
+                <div class="navigation_nav">
+                    <ul>
+                        <li class="icon_link">
+                            <a href="../index.html">
+
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/home.png" alt="">
+                                    首页
+                                </div>
+
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="tab.html">
+
+                                <div class="icon_link1">
+                                    <img src="../image/icon/标签_o.png" alt="">
+                                    标签
+                                </div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="html/taxon.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/quanlingyuguimo.png" alt="">
+                                    分类
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="pigeonhole.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/wendang.png" alt="">
+                                    归档
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <router-link to="/concerning" class="router-test">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/关于.png" alt="">
+                                    关于
+                                </div>
+
+                            </router-link>
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="webBoard.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                    留言区
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="html/friendlink.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/cylxr.png" alt="">
+                                    友链
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="#" class="icon_jt">
+                                <div class="icon_link1 icon_jt">
+                                    <img src="../image/icon/icon_2t92f13wu22/lianjie.png" alt="">
+                                    清单
+                                    <img class="icon_jiantou" src="../image/icon/jiantoushang.png" alt="">
+                                    <div class="icon_jttsk icon_jt">
+                                        <div class="icon_zw">
+                                            <div class="icon_jt">
+                                                <a href="#">
+                                                    <img src="../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                                    碎语
+                                                </a>
+                                            </div>
+                                            <div class="icon_jt">
+                                                <router-link to="/function" class="router-test">
+                                                    <img src="../image/icon/连接.png" alt="">
+                                                    功能
+                                                </router-link>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/搜索.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--页面内容-->
+
+
+
+            <div class="background">
+                <div class="con_top_text">
+                    <div class="con_top_text_n">
+                        <div class="con_top_text_title">
+                            <span>留言板</span>
+                        </div>
+                        <div class="con_top_text_title2">
+                            <span>新的一天，新的开始</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="webBoard">
+                <div class="webBoard_n">
+                    <div class="webBoard_text">
+                        <div class="webBoard_text_log">
+                            <img src="../../public/image/icon/微信.png" alt="">
+                            <span>留言板</span>
+                        </div>
+                        <div class="webBoard_text_span">
+                            <span>欢迎大家到在此随意谈吐，我会认真回复</span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="reply">
+                    <van-nav-bar class="title" title="留言" />
+                    <div class="reply_n">
+                        <div class="logreply">
+                            <img src="../../public/image/icon/微信.png" alt="">
+                            <span>留言</span>
+                        </div>
+                        <div class="reply_textframe">
+
+                            <div class="reply_text">
+                                <div class="reply_text_input">
+                                    <div>
+                                        <input class="top_input" v-model="WebBoard.userName" type="text"
+                                               placeholder="昵称/QQ号（必填）" @input="testa()">
+                                    </div>
+                                    <div>
+                                        <input class="top_input" v-model="WebBoard.emil" type="email" name="" id=""
+                                               placeholder="请输入邮箱">
+                                    </div>
+                                    <div>
+                                        <input class="top_input" v-model="WebBoard.webUrl" type="text"
+                                               placeholder="网站（https：//）">
+                                    </div>
+
+                                </div>
+                                <div class="reply_text_c">
+                                    <textarea v-model="WebBoard.content" placeholder="在这里输入评论"></textarea>
+                                    <div class="but">
+                                        <button @click="submit()">发表</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="portrait">
+                            <div class="portrait_n">
+                                <div class="portrait_tx">
+                                    <img src="" alt="" class="portrait_img">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="comment">
+                            <div class="comment_n">
+                                <div class="comment_title">
+                                    <span>留言</span>
+                                </div>
+                                <div class="write_up">
+                                    <div class="write_up_leirong">
+                                        <li v-for=" ly in liuyan.data">
+                                            <div class="write_up_leirong_top">
+
+                                                <img class="write_img" src="#" alt="">
+                                                <div class="write_up_leirong_n">
+                                                    <span>{{ ly.username }}</span>
+                                                </div>
+                                                <div class="write_up_leirong_time">
+                                                    <span>{{ ly.time }}</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="write_up_leirong_dh">
+
+                                                <div class="write_up_leirong_lr">
+                                                    <span>{{ ly.content }}</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="write_up_img">
+                                                <div class="praise">
+                                                    <img src="../../public/image/icon/dianzan.png" alt="">
+                                                    <span>{{ ly.praise }}</span>
+                                                </div>
+                                                <div class="tread">
+                                                    <img src="../../public/image/icon/cai.png" alt="">
+                                                    <span>{{ ly.tread }}</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <button @click="more()" class="more">加载更多评论</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        <!--版权-->
+        <div class="copyright">
+            <div class="copyright_top">
+                <div class="copyright_top_ti">
+                    <div>版权所有©2023半夜才有精神|个人主页|Welcome to here!</div>
+                    <div>xxxxxxxxxxxx</div>
+                </div>
+                <div class="copyright_top_log">
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/github.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/QQ.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/weixin.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/youxiang.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+        </div>
+        <!-- 手机端底部导航栏 -->
+        <van-tabbar v-model="active" class="phoneNav">
+            <van-tabbar-item icon="home-o">
+                <router-link to="/home" class="router-test">
+                    主页
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="apps-o">
+                <router-link to="/tab" class="router-test">
+                    标签
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="friends-o">
+                <router-link to="/phonnav" class="router-test">导航</router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="setting-o">
+                <router-link to="/pigeonhole" class="router-test"> 归档</router-link>
+            </van-tabbar-item>
+        </van-tabbar>
+
+    </div>
+</div>
+<script>
+
+
+    const {createApp, ref, onMounted, reactive} = Vue;
+    createApp({
+        setup() {
+            const active = ref('home')
+            const WebBoard = reactive({
+                userName: "",
+                emil: "",
+                webUrl: "",
+                content: "",
+            })
+
+            const liuyan = ref({})
+            const page = ref()
+            const ys = ref(5)
+
+            /*加载更多留言*/
+            function more() {
+                if (ys.value < page.value) {
+                    ys.value = ys.value + 5;
+                    axios({
+                        method: 'get',
+                        url: "commentservice/findByCommentPager/1/" + ys.value,
+                    }).then((result) => {
+                        liuyan.value = result.data.data
+                        page.value = result.data.data.total
+                        console.log(liuyan.value)
+                    }).catch((err) => {
+                        alert("出错了")
+                    });
+                } else {
+                    alert("没有留言")
+                }
+            }
+
+            /*发表留言*/
+            function submit() {
+                if (WebBoard.userName != null && WebBoard.userName !== '') {
+                    if (WebBoard.content != null && WebBoard.content !== '') {
+                        axios({
+                            method: "post",
+                            url: "commentservice/addComment",
+                            data: {
+                                username: WebBoard.userName,
+                                emil: WebBoard.emil,
+                                webUrl: WebBoard.webUrl,
+                                content: WebBoard.content
+                            }
+                        }).then((result) => {
+                            if (result.data.code === 1) {
+                                alert("留言发表成功")
+                            } else {
+                                alert("发表留言失败")
+                            }
+                        }).catch((err) => {
+
+                        })
+                    } else {
+                        alert('请输入留言')
+                    }
+                } else {
+                    alert("请输入姓名")
+
+                }
+            }
+
+            /*默认加载5条留言*/
+            onMounted(() => {
+                console.log("test")
+                axios({
+                    method: 'get',
+                    url: "commentservice/findByCommentPager/1/5",
+                }).then((result) => {
+                    liuyan.value = result.data.data
+                    page.value = result.data.data.total
+                    console.log(liuyan.value)
+                }).catch((err) => {
+                    alert("加载留言失败")
+                });
+            })
+            return {
+                active,
+                WebBoard,
+                liuyan,
+                page,
+                ys,
+                more,submit,
+            }
+
+        },
+
+    }).use(ElementPlus).mount("#webBoard")
+
+
+</script>
+
+
+<script src="../js/blog-static.cnblogs.com_files_quaint_sakuraPlus.js"></script>
+</body>
+</html>

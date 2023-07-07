@@ -1,0 +1,15 @@
+.pigeonhole {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.pigeonhole_n {
+
+    width: 60%;
+    margin: auto;
+    padding: 50px;
+    background-color: blanchedalmond;
+    border-radius: 40px;
+
+}

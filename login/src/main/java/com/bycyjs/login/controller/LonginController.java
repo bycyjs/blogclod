@@ -35,23 +35,23 @@ public class LonginController {
     }
 
 
-    @PostMapping("/adduser")
-    public String addUser(@RequestBody User user) {
+    @PostMapping("/adduser/{code}")
+    public R addUser(@RequestBody User user,@PathVariable("code")String code) {
 
 
-        log.info("数据：" + user);
+        /*log.info("数据：" + user);*/
         if (user.getUsername() == null) {
-            log.info("user的数据为空");
-            return "false";
+            log.error("user的数据为空");
+            return R.error("请输入用户数据");
         }
         user.setTime(new SimpleDateFormat("YYYY-MM-dd HH:MM:ss").format(new Date()));
-        String s;
+        R s;
         try {
-            s = loginService.addUser(user);
+            s = loginService.addUser(user,code);
 
         } catch (Exception e) {
-            log.info("报错：" + e);
-            return "false";
+            log.error("报错：" + e);
+            return R.error("注册用户失败");
         }
 
 

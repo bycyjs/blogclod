@@ -1,0 +1,10 @@
+.title {
+    display: none;
+
+    @media screen and (max-device-width: 1000px) {
+        display: block;
+        position: fixed;
+        width: 100%;
+        z-index: 998;
+    }
+}

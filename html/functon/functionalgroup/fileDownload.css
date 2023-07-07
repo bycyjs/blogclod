@@ -1,0 +1,29 @@
+
+.el-table .warning-row {
+    --el-table-tr-bg-color: var(--el-color-warning-light-9);
+}
+
+.el-table .success-row {
+    --el-table-tr-bg-color: var(--el-color-success-light-9);
+}
+
+/* .con_top_text_n {
+    margin-top: 150px;
+
+} */
+.table {
+    width: 100%;
+}
+
+.tablea {
+    background-color: aliceblue;
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.tableaa div {
+    width: 33.333333%;
+    text-align: center;
+}

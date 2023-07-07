@@ -29,32 +29,33 @@ public class LoginServiceImpl implements LoginService {
 
     /*增加新用户*/
     @Override
-    public String addUser(User user) {
+    public R addUser(User user,String code) {
         List<User> user1 = null;
         try {
             user1 = userMapper.selectName(user);
 
         } catch (Exception e) {
-            log.info("" + e);
-            log.info("fail1");
-            return "fail";
+            log.error("" + e);
+            log.error("fail1");
+            return R.error("出错了");
 
         }
         /*判断用户名是否重复*/
         /*System.out.println(user1.size() > 0);*/
         if (user1.size() > 0) {
-            return "1";
+            return R.error("用户名重复");
         }
         try {
             userMapper.addUser(user);
-            mailboxService.addMailboxlogin(user.getUsername(), user.getMailboxvalidate());
+            mailboxService.addMailboxlogin(user.getUsername(), user.getMailboxvalidate(),code);
         } catch (Exception e) {
-            log.info("" + e);
-            log.info("fail2");
-            return "fail";
+            log.error("" + e);
+            log.error("fail2");
+            return R.error("出错了");
+
         }
 
-        return "succeed";
+        return R.success("success");
     }
 
     /*判断用户是否存在，密码是否正确*/

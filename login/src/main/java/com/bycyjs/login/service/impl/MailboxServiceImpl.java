@@ -93,7 +93,7 @@ public class MailboxServiceImpl implements MailboxService {
             /*将验证码存入redis中*/
             redisTemplate.opsForValue().set(mailbox.getUsername(), vcode, 5 * 60, TimeUnit.SECONDS);
 
-           /* System.out.println(redisTemplate.opsForValue().get(mailbox.getMailbox()));*/
+            /* System.out.println(redisTemplate.opsForValue().get(mailbox.getMailbox()));*/
 
 
             /*存入mysql中验证验证码*/
@@ -124,30 +124,42 @@ public class MailboxServiceImpl implements MailboxService {
 
     /*绑定邮箱*/
     @Override
-    public R addMailbox(HttpServletRequest request, String mailbox) {
+    public R addMailbox(HttpServletRequest request, String mailbox, String code) {
         String username = request.getHeader("username");
         String password = request.getHeader("password");
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
+        /*判断用户是否存在*/
         if (userMapper.selectName(user) != null) {
+            /*判断密码是否*/
             if (userMapper.selectPassword(user) != null) {
                 String time = new SimpleDateFormat("YYYY-MM-dd").format(new Date());
                 Mailbox mailbox1 = new Mailbox();
                 mailbox1.setMailbox(mailbox);
                 mailbox1.setUsername(username);
                 mailbox1.setAltertime(time);
-
-                if (mailboxMapper.selectMailbox(mailbox1) != null) {
-                    return R.error("已经有邮箱");
+                /*判断验证码是否正确*/
+                String s = redisTemplate.opsForValue().get(mailbox);
+                if (s != null) {
+                    if (s.equals(code)) {
+                        /*判断是否有邮箱*/
+                        if (mailboxMapper.selectMailbox(mailbox1) != null) {
+                            return R.error("已经有邮箱");
+                        }
+                        try {
+                            mailboxMapper.addMailbox(mailbox1);
+                        } catch (Exception e) {
+                            log.error("" + e);
+                            return R.error("邮箱添加失败");
+                        }
+                        return R.success("邮箱添加成功");
+                    } else {
+                        return R.error("验证码错误");
+                    }
+                } else {
+                    return R.error("请获取验证码");
                 }
-                try {
-                    mailboxMapper.addMailbox(mailbox1);
-                } catch (Exception e) {
-                    log.info("" + e);
-                    return R.error("邮箱添加失败");
-                }
-                return R.success("邮箱添加成功");
 
             } else {
                 return R.error("密码错误");
@@ -160,13 +172,25 @@ public class MailboxServiceImpl implements MailboxService {
     }
 
     @Override
-    public R addMailboxlogin(String username, String mailbox) {
+    public R addMailboxlogin(String username, String mailbox, String code) {
         Mailbox mailbox1 = new Mailbox();
         mailbox1.setMailbox(mailbox);
         mailbox1.setAltertime(new SimpleDateFormat("YYYY-MM-dd").format(new Date()));
         mailbox1.setUsername(username);
-        mailboxMapper.addMailbox(mailbox1);
-        return null;
+        /*判断验证码是否正确*/
+        String s = redisTemplate.opsForValue().get(mailbox);
+        if (s != null) {
+            if (s.equals(code)) {
+                mailboxMapper.addMailbox(mailbox1);
+                return R.success("success");
+            } else {
+                return R.error("验证码错误");
+            }
+        } else {
+            return R.error("请获取验证码");
+        }
+
+
     }
 
 
@@ -186,18 +210,16 @@ public class MailboxServiceImpl implements MailboxService {
         message.setText("尊敬的" + mailbox + ",您好:\n"
                 + "\n本次请求的邮件验证码为:" + vcode + ",本验证码 5 分钟内效，请及时输入。（请勿泄露此验证码）\n"
                 + "\n如非本人操作，请忽略该邮件。\n(这是一封通过自动发送的邮件，请不要直接回复）");
-        /*System.out.println(message.getFrom());*/
 
 
         try {
             mailSender.send(message);
-            redisTemplate.opsForValue().set(mailbox, vcode);
-            ;
         } catch (Exception e) {
             log.error("" + e);
-            return R.error("" + e);
+            return R.error("验证码发送失败");
         }
-        return R.success(vcode);
+        redisTemplate.opsForValue().set(mailbox, vcode,5*60,TimeUnit.SECONDS);
+        return R.success("验证码发送成功");
     }
 
 

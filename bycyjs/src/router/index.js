@@ -29,7 +29,7 @@ const router = createRouter({
         },{
           path: '/pigeonhole',
           name: 'pigeonhole',
-          component: () => import('../views/pigeonhole.vue')
+          component: () => import('../views/Pigeonhole.vue')
         },{
           path: '/concerning',
           name: "concerning",
@@ -72,6 +72,10 @@ const router = createRouter({
           component:()=>import('../views/PhoneNav.vue')
         }
       ]
+    },{
+      path:'/weixing',
+      name:"weixing",
+      component:()=>import('../currency/Weixing.vue')
     }
    
   ]

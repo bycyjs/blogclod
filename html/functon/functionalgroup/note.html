@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>学习笔记上传</title>
+    <link rel="stylesheet" href="../../css/back.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <!--    导入 layui-->
+    <link rel="stylesheet" href="../../js/exterior/node_modules/layui/dist/css/layui.css">
+    <script src="../../js/exterior/node_modules/layui/dist/layui.js"></script>
+    <!--    Import axios-->
+    <script src="../../js/exterior/node_modules/axios/dist/axios.js"></script>
+    <script src="../../js/tool/axiosInstance.js"></script>
+    <!-- Import style -->
+    <link rel="stylesheet" href="../../js/exterior/node_modules/element-plus/dist/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="../../js/exterior/node_modules/vue/dist/vue.global.js"></script>
+    <!-- Import component library -->
+    <script src="../../js/exterior/node_modules/element-plus/dist/index.full.js"></script>
+    <!--jq-->
+    <script src="../../js/exterior/node_modules/jquery/dist/jquery.js"></script>
+    <style>
+        .pigeonhole {
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .pigeonhole_n {
+
+            width: 60%;
+            margin: auto;
+            padding: 50px;
+            background-color: blanchedalmond;
+            border-radius: 40px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="note">
+    <div class="backgroundimg">
+
+        <!-- 回到顶部 -->
+        <div class="gobackto">
+            <a href="#">
+                <!-- <el-tooltip class="item" effect="dark" content="返回顶部" placement="top"> -->
+                <img src="../../image/icon/返回顶部.png" alt="">
+                <!-- </el-tooltip> -->
+            </a>
+        </div>
+        <!--顶部导航栏-->
+        <div class="navigation">
+            <nav>
+                <div class="navigation_sidebar">
+                    <a href="javascript:;" id="sidebbar">
+                        <img src="../../image/icon/菜单.png" alt="">
+                    </a>
+                </div>
+                <div class="navigation_log">
+                    <a href="../../index.html">半夜才有精神|个人博客 </a>
+                </div>
+                <div class="navigation_nav">
+                    <ul>
+                        <li class="icon_link">
+                            <a href="../../index.html">
+
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/home.png" alt="">
+                                    首页
+                                </div>
+
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../../page/tab.html">
+
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/标签_o.png" alt="">
+                                    标签
+                                </div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="html/taxon.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/quanlingyuguimo.png" alt="">
+                                    分类
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../../page/pigeonhole.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/wendang.png" alt="">
+                                    归档
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../../page/concerning.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/关于.png" alt="">
+                                    关于
+                                </div>
+
+                            </a>
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="../../page/webBoard.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                    留言区
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="html/friendlink.html">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/cylxr.png" alt="">
+                                    友链
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="#" class="icon_jt">
+                                <div class="icon_link1 icon_jt">
+                                    <img src="../../image/icon/icon_2t92f13wu22/lianjie.png" alt="">
+                                    清单
+                                    <img class="icon_jiantou" src="../../image/icon/jiantoushang.png" alt="">
+                                    <div class="icon_jttsk icon_jt">
+                                        <div class="icon_zw">
+                                            <div class="icon_jt">
+                                                <a href="#">
+                                                    <img src="../../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                                    碎语
+                                                </a>
+                                            </div>
+                                            <div class="icon_jt">
+                                                <a href="../function.html" >
+                                                    <img src="../../image/icon/连接.png" alt="">
+                                                    功能
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="">
+                                <div class="icon_link1">
+                                    <img src="../../image/icon/icon_2t92f13wu22/搜索.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--页面内容-->
+
+
+            <div class="background">
+                <div class="con_top_text">
+                    <div class="con_top_text_n">
+                        <div class="con_top_text_title">
+                            <span>学习笔记目录</span>
+                        </div>
+                        <div class="con_top_text_title2">
+                            <span>新的一天，新的开始</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 时间线 -->
+            <div class="pigeonhole">
+                <div class="pigeonhole_n">
+                    <el-timeline>
+                        <el-timeline-item
+                                v-for="(activity, index) in activities"
+                                :key="index"
+                                :icon="activity.icon"
+                                :type="activity.type"
+                                :color="activity.color"
+                                :size="activity.size"
+                                :hollow="activity.hollow"
+                                :timestamp="activity.time"
+                        >
+                            <a href="#" @click="note(activity)"> {{ activity.filename }}</a>
+                        </el-timeline-item>
+                    </el-timeline>
+                </div>
+
+
+            </div>
+
+
+
+
+
+        <!--版权-->
+        <div class="copyright">
+            <div class="copyright_top">
+                <div class="copyright_top_ti">
+                    <div>版权所有©2023半夜才有精神|个人主页|Welcome to here!</div>
+                    <div>xxxxxxxxxxxx</div>
+                </div>
+                <div class="copyright_top_log">
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/github.png" alt=""></a></div>
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/QQ.png" alt=""></a></div>
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/weixin.png" alt=""></a></div>
+                    <div><a href=""><img src="../../image/icon/icon_h9lil6qalut/youxiang.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+        </div>
+        <!-- 手机端底部导航栏 -->
+        <van-tabbar v-model="active" class="phoneNav">
+            <van-tabbar-item icon="home-o">
+                <router-link to="/home" class="router-test">
+                    主页
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="apps-o">
+                <router-link to="/tab" class="router-test">
+                    标签
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="friends-o">
+                <router-link to="/phonnav" class="router-test">导航</router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="setting-o">
+                <router-link to="/pigeonhole" class="router-test"> 归档</router-link>
+            </van-tabbar-item>
+        </van-tabbar>
+
+    </div>
+</div>
+<script>
+
+
+    const {createApp, ref, onMounted, reactive,MoreFilled} = Vue;
+    createApp({
+        setup() {
+
+            const activities = ref([
+                {
+                    content: 'Custom icon',
+                    timestamp: '2018-04-12 20:46',
+                    size: 'large',
+                    type: 'primary',
+                    icon: MoreFilled,
+                }])
+
+            onMounted(() => {
+                axios({
+                    method: "get",
+                    url: "mdservice/findByFrontPager/1/5"
+                }).then((resf) => {
+                    activities.value = resf.data.data.data
+                    console.log(activities)
+                    for (let i = 0; i < activities.length; i++) {
+                        activities[i].time = mds[i].time.slice(0, 10)
+                    }
+                    console.log(activities)
+                }).catch((err) => {
+                    alert("出错了")
+                })
+            })
+
+            function note(activity) {
+                axios({
+                    method: "get",
+                    url: "mdservice/selectFront/" + activity.time + "/" + activity.filename
+                }).then((resf) => {
+                    if (resf.data.code === 1) {
+                        //新打开一个页面（about:blank是打开浏览器空白页的命令）, _blank：打开一个新的窗口
+                        // var newPage = window.open("about:blank", "_blank");
+                        var newPage = window.open(activity.filename, activity.filename);
+                        //将后台传过来的html页面写到新打开的浏览器窗口中显示
+                        newPage.document.write(resf.data.data);
+                        newPage.document.title = activity.filename
+
+
+
+                    } else {
+                        alert("失败")
+                    }
+                })
+            }
+
+            return {
+                activities,
+                note,
+
+            }
+
+        },
+
+    }).use(ElementPlus).mount("#note")
+
+
+</script>
+
+
+<script src="../../js/blog-static.cnblogs.com_files_quaint_sakuraPlus.js"></script>
+</body>
+</html>

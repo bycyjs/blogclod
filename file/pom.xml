@@ -61,7 +61,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- 指定打包的jar包输出路径 -->
-                    <outputDirectory>F:\blog\service</outputDirectory>
+<!--                    <outputDirectory>F:\blog\service</outputDirectory>-->
+                    <outputDirectory>\home\liuhao\jar</outputDirectory>
                     <!-- 指定该 Main Class 为全局的唯一入口 -->
                     <mainClass>com.bycyjs.file.FileApplication</mainClass>
                     <layout>ZIP</layout>

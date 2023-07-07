@@ -86,7 +86,7 @@ document.title = "主页"
 
               </li>
               <li>
-                <a href="" class="con_top_text_log_youxing">
+                <a href="#" class="con_top_text_log_youxing">
                   <el-tooltip class="box-item" effect="dark" content="邮件联系我" placement="top">
                     <img src="../../public/image/icon/icon_h9lil6qalut/youxiang.png" alt="">
                   </el-tooltip>
@@ -94,7 +94,7 @@ document.title = "主页"
                 </a>
               </li>
               <li>
-                <a href="" class="con_top_text_log_qq">
+                <a href="#" class="con_top_text_log_qq">
                   <el-tooltip class="box-item" effect="dark" content="QQ联系我：704812528" placement="top">
                     <img src="../../public/image/icon/icon_h9lil6qalut/QQ.png" alt="">
                   </el-tooltip>
@@ -102,9 +102,12 @@ document.title = "主页"
                 </a>
               </li>
               <li>
-                <a href="" class="con_top_text_log_weixin" data-title="删除删除删除">
+
+                <a href="#" data-title="删除删除删除">
                   <el-tooltip class="box-item" effect="dark" content="微信扫一扫" placement="top">
-                    <img src="../../public/image/icon/icon_h9lil6qalut/weixin.png" alt="">
+                    <router-link to="weixing" class="router-test tab_text">
+                      <img src="../../public/image/icon/icon_h9lil6qalut/weixin.png" alt="">
+                    </router-link>
                   </el-tooltip>
 
                 </a>

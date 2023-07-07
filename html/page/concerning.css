@@ -1,0 +1,90 @@
+
+body{
+    background-color: #d4cece;
+}
+.concerning {
+    width: 100%;
+}
+
+.concerning_n {
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+}
+
+.concerning_a {
+    display: flex;
+    justify-content: space-around;
+}
+
+.concerning_t {
+    display: flex;
+}
+.concerning_t div{
+    margin: 1vw;
+}
+
+.concerning_img{
+    transform: translate3d(0, -65%, 0);
+}
+.concerning_img img {
+    max-height: 10vw;
+    border: 1px solid #d4cece;
+    border-radius: 50%;
+
+}
+
+.concerning_ico {
+    display: flex;
+}
+.concerning_ico div{
+    margin: 1vw;
+}
+.concerning_ico img{
+    max-height: 3vw;
+}
+.concering_b{
+    width: 100%;
+}
+.concering_b div span,
+.concering_c div span
+{
+    display: block;
+    text-align: center;
+}
+.concering_b div span{
+    font-size: 3.5vw;
+}
+.concering_c{
+    margin-top: 2vh;
+}
+.concering_c div span,
+.concering_d span{
+    font-weight: 200;
+    font-size: 0.3vw;
+    color: #a7a3a3;
+}
+.concering_d{
+    margin-top: 5vh;
+}
+.concering_d span{
+    display: block;
+    text-align: center;
+    font-size: 0.5vw;
+}
+
+.concering_e{
+    width: 100%;
+}
+.concering_e div:nth-child(1) span{
+    display: block;
+    text-align: center;
+}
+.concering_ea{
+    width: 100%;
+}
+.concering_ea div:nth-child(1){
+    width: 30%;
+    height: 3vw;
+    /* background-color: yellow; */
+}

@@ -17,7 +17,7 @@ function mailboxvalidate() {
         method: 'get',
         url: "userservice/sendVerificationCodelogin/" + formLabelAlign.mailbox,
     }).then((result) => {
-        _this.mailboxv = result.data.data;
+        /*_this.mailboxv = result.data.data;*/
         alert('邮箱验证码发送成功')
     }).catch((err) => {
 
@@ -25,10 +25,10 @@ function mailboxvalidate() {
 }
 function bd() {
     var _this = this;
-    if (_this.mailboxv === _this.formLabelAlign.mailboxvalidate) {
+    /*if (_this.mailboxv === _this.formLabelAlign.mailboxvalidate) {*/
         axios({
             method: 'get',
-            url: "mailboxService/addMailbox/" + _this.formLabelAlign.mailbox,
+            url: "mailboxService/addMailbox/" + _this.formLabelAlign.mailbox+"/"+formLabelAlign.mailboxvalidate,
 
         }).then((result) => {
             
@@ -40,9 +40,9 @@ function bd() {
         }).catch((err) => {
             
         });
-    } else {
+   /* } else {
         alert("验证码错误")
-    }
+    }*/
 }
 document.title="添加邮箱"
 

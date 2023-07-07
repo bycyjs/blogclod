@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>功能</title>
+    <link rel="stylesheet" href="../css/title.css">
+    <link rel="stylesheet" href="../page/tab.css">
+    <link rel="stylesheet" href="../css/back.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+    <link rel="stylesheet" href="../js/exterior/node_modules/layui/dist/css/layui.css">
+    <script src="../js/exterior/node_modules/layui/dist/layui.js"></script>
+    <!--    Import axios-->
+    <script src="../js/exterior/node_modules/axios/dist/axios.js"></script>
+    <script src="../js/tool/axiosInstance.js"></script>
+    <!-- Import style -->
+    <link rel="stylesheet" href="../js/exterior/node_modules/element-plus/dist/index.css"/>
+    <!-- Import Vue 3 -->
+    <script src="../js/exterior/node_modules/vue/dist/vue.global.js"></script>
+    <!-- Import component library -->
+    <script src="../js/exterior/node_modules/element-plus/dist/index.full.js"></script>
+    <!--jq-->
+    <script src="../js/exterior/node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<div id="fuction">
+    <div class="backgroundimg">
+
+        <!-- 回到顶部 -->
+        <div class="gobackto">
+            <a href="#">
+                <!-- <el-tooltip class="item" effect="dark" content="返回顶部" placement="top"> -->
+                <img src="../image/icon/返回顶部.png" alt="">
+                <!-- </el-tooltip> -->
+            </a>
+        </div>
+        <!--顶部导航栏-->
+        <div class="navigation">
+            <nav>
+                <div class="navigation_sidebar">
+                    <a href="javascript:;" id="sidebbar">
+                        <img src="../image/icon/菜单.png" alt="">
+                    </a>
+                </div>
+                <div class="navigation_log">
+                    <a href="../index.html">半夜才有精神|个人博客 </a>
+                </div>
+                <div class="navigation_nav">
+                    <ul>
+                        <li class="icon_link">
+                            <a href="../index.html">
+
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/home.png" alt="">
+                                    首页
+                                </div>
+
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../page/tab.html">
+
+                                <div class="icon_link1">
+                                    <img src="../image/icon/标签_o.png" alt="">
+                                    标签
+                                </div>
+
+                            </a>
+
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="html/taxon.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/quanlingyuguimo.png" alt="">
+                                    分类
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../page/pigeonhole.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/wendang.png" alt="">
+                                    归档
+
+                                </div>
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="../page/concerning.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/关于.png" alt="">
+                                    关于
+                                </div>
+
+                            </a>
+                        </li>
+
+                        <li class="icon_link">
+                            <a href="../page/webBoard.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                    留言区
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="html/friendlink.html">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/cylxr.png" alt="">
+                                    友链
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="#" class="icon_jt">
+                                <div class="icon_link1 icon_jt">
+                                    <img src="../image/icon/icon_2t92f13wu22/lianjie.png" alt="">
+                                    清单
+                                    <img class="icon_jiantou" src="../image/icon/jiantoushang.png" alt="">
+                                    <div class="icon_jttsk icon_jt">
+                                        <div class="icon_zw">
+                                            <div class="icon_jt">
+                                                <a href="#">
+                                                    <img src="../image/icon/icon_2t92f13wu22/weixin.png" alt="">
+                                                    碎语
+                                                </a>
+                                            </div>
+                                            <div class="icon_jt">
+                                                <a href="./function.html">
+                                                    <img src="../image/icon/连接.png" alt="">
+                                                    功能
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="icon_link">
+                            <a href="">
+                                <div class="icon_link1">
+                                    <img src="../image/icon/icon_2t92f13wu22/搜索.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--页面内容-->
+
+
+
+
+<!--            <van-nav-bar class="title" title="功能" />-->
+            <div class="background">
+                <div class="con_top_text">
+                    <div class="con_top_text_n">
+                        <div class="con_top_text_title">
+                            <span>功能界面</span>
+                        </div>
+                        <div class="con_top_text_title2">
+                            <span>新的一天，新的开始</span>
+                            <br>
+                            <span v-if="userdata!=null">{{ userdata.username }},欢迎登陆</span>
+                            <span v-if="userdata==null">你还未登陆，请登陆</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="fuctionlick">
+
+            <div class="tab">
+                <div class="tab_n">
+
+                    <div class="logtext">
+                        <img src="../image/icon/icon_h9lil6qalut/标签_o.png" alt="">
+                        <span>功能链接</span>
+                    </div>
+                    <div class="tab_content ">
+                        <a href="#" class="tab_text">
+                            <span>登陆</span>
+                        </a>
+                        <a href="#" class="tab_text">
+                            <span>注册</span>
+                        </a>
+                        <a href="#" @click="upload()" class="router-test tab_text">
+                            <span>文件上传</span>
+                        </a>
+                        <a href="#" @click="filedownload()" class="router-test tab_text">
+                            <span>文件下载</span>
+                        </a>
+                        <a href="#" @click="addmailbox()" class="router-test tab_text">
+                            <span>添加邮箱</span>
+                        </a>
+                        <a href="#" @click="sendmailboxcode()" class="router-test tab_text">
+                            <span>发送邮箱验证码测试</span>
+                        </a>
+
+                        <a href="#" @click="mdupload()" class="router-test tab_text">
+                            <span>学习笔记上传</span>
+                        </a>
+                        <a @click="note()" class="router-test tab_text">
+                            <span>学习笔记目录</span>
+                        </a>
+                        <a @click="quitlogin()" class="router-test tab_text">
+                            <span>退出登陆</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!--版权-->
+        <div class="copyright">
+            <div class="copyright_top">
+                <div class="copyright_top_ti">
+                    <div>版权所有©2023半夜才有精神|个人主页|Welcome to here!</div>
+                    <div>xxxxxxxxxxxx</div>
+                </div>
+                <div class="copyright_top_log">
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/github.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/QQ.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/weixin.png" alt=""></a></div>
+                    <div><a href=""><img src="../image/icon/icon_h9lil6qalut/youxiang.png" alt=""></a></div>
+                </div>
+            </div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+            <div class="copyright_text">xxxxxxxxxxxxxxx</div>
+        </div>
+        <!-- 手机端底部导航栏 -->
+        <van-tabbar v-model="active" class="phoneNav">
+            <van-tabbar-item icon="home-o">
+                <router-link to="/home" class="router-test">
+                    主页
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="apps-o">
+                <router-link to="/tab" class="router-test">
+                    标签
+                </router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="friends-o">
+                <router-link to="/phonnav" class="router-test">导航</router-link>
+            </van-tabbar-item>
+            <van-tabbar-item icon="setting-o">
+                <router-link to="/pigeonhole" class="router-test"> 归档</router-link>
+            </van-tabbar-item>
+        </van-tabbar>
+
+    </div>
+</div>
+<script>
+
+
+    const {createApp, ref, onMounted, reactive,methods} = Vue;
+
+    createApp({
+        setup() {
+            const active = ref('home')
+            const userdata = ref(JSON.parse(localStorage.getItem("userdata")))
+
+            function loginpd() {
+                if (localStorage.getItem("userdata") === null || localStorage.getItem("userdata") === "") {
+
+                    alert("你还未登陆")
+                    return false;
+                }
+                return true;
+            }
+
+            function upload() {
+
+                if (loginpd()) {
+                   location.href='./functionalgroup/upload.html'
+                }
+            }
+
+            function filedownload() {
+                if (loginpd()) {
+                    location.href='./functionalgroup/fileDownload.html'
+                }
+            }
+            function addmailbox() {
+                if (loginpd()) {
+                  location.href='./functionalgroup/addMailbox.html'
+                }
+            }
+            function sendmailboxcode() {
+                if (loginpd()) {
+                    location.href='./functionalgroup/sendMailboxCode.html'
+                }
+            }
+            function mdupload() {
+                if (loginpd()) {
+                    location.href='./functionalgroup/mdUpload.html'
+                }
+            }
+            function note() {
+                location.href='./functionalgroup/note.html'
+            }
+            function quitlogin(){
+                if (localStorage.getItem("userdata")!=null&&localStorage.getItem("userdata")!=="null"){
+                    localStorage.setItem("userdata",null)
+                    alert("退出登陆成功")
+                   location.href='./function.html'
+                }else {
+                    alert("你还未登陆")
+                }
+
+
+            }
+
+            return {
+                active,
+                userdata,
+                quitlogin,note,mdupload,sendmailboxcode,addmailbox,filedownload,upload,
+
+            }
+
+        },
+
+    }).use(ElementPlus).mount("#fuction")
+
+    $(() => {
+        var tabText = $(".tab_text")
+        var color = ["#a7f4b7", "#a892dc", "#dfad69", "#df698d", "#7ac4bd", "#87d994", "#c7e7cc"]
+        for (var i = 0; i < tabText.length; i++) {
+            var sj = Math.floor(Math.random() * 7);
+            $(tabText[i]).css("background-color", color[sj]);
+
+        }
+        $(".tab_text").hover(function () {
+                $(this).css("background-color", "rgb(178, 230, 212)");
+
+            }, function () {
+                // out
+                var sj = Math.floor(Math.random() * 7);
+                $(this).css("background-color", color[sj]);
+            }
+        );
+    })
+</script>
+
+
+<script src="../js/blog-static.cnblogs.com_files_quaint_sakuraPlus.js"></script>
+</body>
+</html>

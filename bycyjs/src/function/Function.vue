@@ -159,5 +159,5 @@ document.title="功能"
 <style scoped lang="scss">
 @import '../assets/back.scss';
 @import '../assets/tab.css';
-@import '../assets/title.scss'
+@import '../assets/title.scss';
 </style>

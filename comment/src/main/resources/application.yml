@@ -10,4 +10,4 @@ spring:
     driver-class-name:  com.mysql.jdbc.Driver
     username: root
     password: liuhao12345
-    url: jdbc:mysql://localhost:3306/ comment?useSSL=false
+    url: jdbc:mysql://localhost:3306/comment?useSSL=false

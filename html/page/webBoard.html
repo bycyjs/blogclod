@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>归档</title>
+    <title>评论</title>
     <link rel="stylesheet" href="../css/title.css">
     <link rel="stylesheet" href="./webBoard.css">
     <link rel="stylesheet" href="../css/back.css">
@@ -175,7 +175,7 @@
                 <div class="webBoard_n">
                     <div class="webBoard_text">
                         <div class="webBoard_text_log">
-                            <img src="../../public/image/icon/微信.png" alt="">
+                            <img src="../image/icon/微信.png" alt="">
                             <span>留言板</span>
                         </div>
                         <div class="webBoard_text_span">
@@ -189,10 +189,10 @@
 
                 </div>
                 <div class="reply">
-                    <van-nav-bar class="title" title="留言" />
+<!--                    <van-nav-bar class="title" title="留言" />-->
                     <div class="reply_n">
                         <div class="logreply">
-                            <img src="../../public/image/icon/微信.png" alt="">
+                            <img src="../image/icon/微信.png" alt="">
                             <span>留言</span>
                         </div>
                         <div class="reply_textframe">
@@ -201,7 +201,7 @@
                                 <div class="reply_text_input">
                                     <div>
                                         <input class="top_input" v-model="WebBoard.userName" type="text"
-                                               placeholder="昵称/QQ号（必填）" @input="testa()">
+                                               placeholder="昵称/QQ号（必填）">
                                     </div>
                                     <div>
                                         <input class="top_input" v-model="WebBoard.emil" type="email" name="" id=""
@@ -259,11 +259,11 @@
                                             </div>
                                             <div class="write_up_img">
                                                 <div class="praise">
-                                                    <img src="../../public/image/icon/dianzan.png" alt="">
+                                                    <img src="../image/icon/dianzan.png" alt="">
                                                     <span>{{ ly.praise }}</span>
                                                 </div>
                                                 <div class="tread">
-                                                    <img src="../../public/image/icon/cai.png" alt="">
+                                                    <img src="../image/icon/cai.png" alt="">
                                                     <span>{{ ly.tread }}</span>
                                                 </div>
                                             </div>
@@ -391,7 +391,7 @@
 
             /*默认加载5条留言*/
             onMounted(() => {
-                console.log("test")
+                // console.log("test")
                 axios({
                     method: 'get',
                     url: "commentservice/findByCommentPager/1/5",
